@@ -1,0 +1,270 @@
+@charset "UTF-8";
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 5px;
+  color: #fff;
+  border: 0;
+  background: #383838;
+}
+
+.pos-btn {
+  position: absolute;
+  display: inline-block;
+  width: 20%;
+  height: 5%;
+  padding: 10px 0;
+  text-align: center;
+  top: 1%;
+  left: 0;
+}
+.pos-btn.share {
+  left: 80%;
+}
+
+.wrap {
+  min-width: 320px;
+  max-width: 640px;
+  width: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  font-family: "微软雅黑", "宋体", Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  position: relative;
+  background: #fff61b;
+}
+.wrap-color{
+  background: #d22a09;
+}
+.main {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.pos {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.egg {
+  position: absolute;
+  width: 22.6%;
+  height: auto;
+  top: 72%;
+  left: 14%;
+}
+.egg2 {
+  top: 74%;
+  left: 39%;
+}
+.egg3 {
+  top: 72%;
+  left: 66%;
+}
+.hammer {
+  width: 30.53%;
+  top: 58%;
+  left: 62%;
+}
+.num {
+  position: absolute;
+  top: 54%;
+  left: 12%;
+  width: 76%;
+  font-size: 16px;
+  line-height: 26px;
+  text-align: center;
+  color: #572517;
+  font-weight: 600;
+}
+.marquee {
+  position: absolute;
+  top: 60%;
+  left: 15%;
+  width: 70%;
+  font-size: 16px;
+  line-height: 26px;
+  text-align: center;
+  color: #572517;
+  font-weight: 600;
+}
+.shareText{
+  position: absolute;
+  top: 57%;
+  left: 12%;
+  width: 76%;
+  font-size: 12px;
+  line-height: 24px;
+  text-align: center;
+  color: red;
+  font-weight: 600;
+}
+.ani-hammer {
+  width: 30.53%;
+  top: 27%;
+  left: 55%;
+  -webkit-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+  -webkit-transform: rotate(40deg);
+  transform: rotate(40deg);
+}
+.mask,
+.mask2 {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8)
+}
+.mask-content {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.mask-rule p {
+  position: absolute;
+  top: 22%;
+  left: 11%;
+  width: 78%;
+  font-size: 16px;
+  line-height: 26px;
+  overflow: auto;
+  height: 63%;
+}
+.mask-share .btn-friend{
+  top: 35%;
+  left: 8%;
+  height: 9%;
+}
+.mask-share .btn-wechat{
+  top: 35%;
+  left: 29%;
+  height: 9%;
+}
+.mask-share .btn-qq{
+  top: 35%;
+  left: 50%;
+  height: 9%;
+}
+.mask-share .btn-msg{
+  top: 35%;
+  left: 71%;
+  height: 9%;
+}
+.mask-fail .btn-fail{
+  top: 65%;
+  left: 33%;
+  height: 5%;
+  width: 36%;
+}
+.mask-win .btn-win{
+  top: 65%;
+  left: 33%;
+  height: 5%;
+  width: 36%;
+}
+.mask-win p{
+  position: absolute;
+  top: 55%;
+  left: 49%;
+  width: 26%;
+  font-size: 12px;
+  color: #d97c00;
+  line-height: 16px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.shake {
+  -webkit-transform-origin: 50% 50%;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-name: shake-ani;
+  -webkit-animation-duration: .5s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+  transform-origin: 50% 50%;
+  animation-timing-function: linear;
+  animation-name: shake-ani;
+  animation-duration: .5s;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+.active {
+  -webkit-animation-name: hammer-ani;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-fill-mode: forwards;
+  animation-name: hammer-ani;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+.egg2.shake {
+  -webkit-animation-duration: .6s;
+  animation-duration: .6s;
+}
+.egg3.shake {
+  -webkit-animation-duration: .4s;
+  animation-duration: .4s;
+}
+.music-ani {
+  -webkit-transform-origin: 50% 50%;
+  /*linear,ease,ease-in,ease-in-out,ease-out*/
+  animation-timing-function: linear;
+  -webkit-animation-name: "music-ani";
+  /*动画持续时间*/
+  -webkit-animation-duration: 100s;
+  /*动画延迟时间*/
+  -webkit-animation-delay: 0s;
+  /*定义循环资料，infinite为无限次*/
+  -webkit-animation-iteration-count: infinite;
+  /* forwards 固定在最后一帧| backwards 固定在第一帧*/
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes music-ani {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(36000deg);
+    transform: rotate(36000deg);
+  }
+}
+@-webkit-keyframes shake-ani {
+  0% {
+    -webkit-transform: translate(5px, 0px) rotate(15deg);
+    transform: translate(5px, 0px) rotate(15deg);
+  }
+  50% {
+    -webkit-transform: translate(-5px, 0px) rotate(-15deg);
+    transform: translate(-5px, 0px) rotate(-15deg);
+  }
+  100% {
+    -webkit-transform: translate(5px, 0px) rotate(15deg);
+    transform: translate(5px, 0px) rotate(15deg);
+  }
+}
+@-webkit-keyframes hammer-ani {
+  0% {
+    -webkit-transform: rotate(40deg);
+    transform: rotate(40deg);
+  }
+  100% {
+    -webkit-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+  }
+}

@@ -1,0 +1,324 @@
+@charset "UTF-8";
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 5px;
+  color: #fff;
+  border: 0;
+  background: #383838;
+}
+
+.pos-btn {
+  position: absolute;
+  display: inline-block;
+  width: 20%;
+  height: 5%;
+  padding: 10px 0;
+  text-align: center;
+  top: 1%;
+  left: 0;
+}
+.pos-btn.share {
+  left: 80%;
+}
+
+.wrap {
+  min-width: 320px;
+  max-width: 640px;
+  width: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  font-family: "微软雅黑", "宋体", Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  position: relative;
+  background: #0a0c3c;
+}
+.wrap-color{
+  background: #0a0c3c;
+}
+.main {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.pos {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  /* border:1px solid red; */
+}
+
+/* index.html */
+video::-webkit-media-controls-fullscreen-button{ display: none !important; }
+#myvideo {
+  width: 76%;
+  height: 20%;
+  top: 28%;
+  left: 12%;
+  object-fit: fill;
+}
+.btn-join {
+  width: 36.6%;
+  height: auto;
+  top: 92%;
+  left: 30%;
+}
+.btn-join img {
+  width: 100%;
+  max-width: 100%;
+}
+.jq-page2 {
+  display: none;
+}
+
+/* main.html */
+.img-bubble {
+  width: 100%;
+  height: auto;
+  top: 22%;
+  left: 0;
+}
+.txt-total {
+  color: #fff;
+  font-size: 28px;
+  text-align: center;
+  top: 12%;
+  left: 0;
+  letter-spacing: 2px;
+}
+.jq-total{
+  letter-spacing: normal;
+  font-size: 0;
+  position: relative;
+  top: -1.5%;
+}
+.jq-total img{
+  margin: 0;
+  width: 5.5%;
+  margin-right: 1px;
+}
+.btn-rule {
+  width: 13%;
+  height: 8%;
+  top: 3%;
+  left: 84%;
+}
+.btn-padi {
+  width: 33%;
+  height: 6%;
+  top: 82%;
+  left: 16%;
+}
+.btn-more {
+  width: 33%;
+  height: 6%;
+  top: 82%;
+  left: 51%;
+}
+.country {
+  display: inline-block;
+  width: 65.33%;
+  height: 43.25%;
+  top: 29.3%;
+  left: 17.33%;
+  overflow: hidden;
+}
+.country li{
+  display: block;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+.country li .txt{
+  position: absolute;
+  top: 3%;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: oblique;
+}
+.country li.active{
+  display: block;
+}
+.btn-pre,
+.btn-next {
+  width: 8%;
+  height: auto;
+  top: 49%;
+  left: 18%;
+}
+.btn-next {
+  left: 74%;
+}
+.dots {
+  top: 69.4%;
+  left: 0;
+  text-align: center;
+}
+.dots li{
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 2px;
+  border-radius: 50%;
+  background: #80c1fc;
+}
+.dots li.active{
+  background: #fff;
+}
+.unlock {
+  display: none;
+}
+.img-jt1 {
+  width: 2.8%;
+  height: auto;
+  left: 43.9%;
+  top: 90.2%;
+}
+.img-jt2 {
+  width: 2.8%;
+  height: auto;
+  left: 77.9%;
+  top: 90.2%;
+}
+.img-jt3 {
+  width: 2.8%;
+  height: auto;
+  left: 58%;
+  top: 93.5%;
+}
+
+.mask {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: auto;
+  width: 100%;
+  /* background: rgba(0, 0, 0, 0.8) */
+}
+.btn-close {
+  width: 11%;
+  height: 5%;
+  top: 25%;
+  left: 77%;
+}
+.mask-content {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.ani-bubble {
+  -webkit-animation-name: "img-bubble";
+  -webkit-animation-duration: 5s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+}
+.ani-jt {
+  -webkit-animation-name: "img-jt";
+  -webkit-animation-duration: 1s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.ani {
+  -webkit-transform-origin: 50% 50%;
+  /*linear,ease,ease-in,ease-in-out,ease-out*/
+  animation-timing-function: linear;
+  -webkit-animation-name: "music-ani";
+  /*动画持续时间*/
+  -webkit-animation-duration: 1s;
+  /*动画延迟时间*/
+  -webkit-animation-delay: 0s;
+  /*定义循环资料，infinite为无限次*/
+  -webkit-animation-iteration-count: infinite;
+  /* forwards 固定在最后一帧| backwards 固定在第一帧*/
+  -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes music-ani {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes img-bubble {
+  0% {
+    -webkit-transform: scale(1) translate(0);
+    transform: scale(1)  translate(0);
+  }
+  50% {
+    -webkit-transform: scale(1.02)  translate(5px, -2px);
+    transform: scale(1.02)  translate(5px, -2px);
+  }
+  100% {
+    -webkit-transform: scale(1)  translate(0);
+    transform: scale(1)  translate(0);
+  }
+}
+@keyframes img-jt {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+/* big样式 */
+#myvideo {
+  top: 25.7%;
+  height: 19.3%;
+}
+.btn-join {
+  top: 82%;
+}
+.img-jt3 {
+  top: 83.4%;
+}
+.img-bubble {
+  top: 24%;
+}
+.btn-pre,
+.btn-next {
+  top: 45%;
+}
+.dots {
+  top: 62.4%;
+}
+.img-jt1 {
+  top: 83.5%;
+}
+.img-jt2 {
+  top: 83.5%;
+}
+.btn-close {
+  top: 27%;
+}
+/* big样式结束 */

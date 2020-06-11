@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>首页</title>
+        <meta name="Keywords" content="">
+        <meta name="Description" content="">
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+        <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+        <meta content="no-cache" http-equiv="pragma">
+        <meta content="0" http-equiv="expires">
+        <meta content="telephone=no, address=no" name="format-detection">
+        <meta name="apple-mobile-web-app-capable" content="yes"> 
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="main">
+                <img src="img/bg_game2.jpg">
+                <div class="pos loud">
+                    <a href="index.html" class="back"></a>
+                    <div class="item item1">
+                        <a href="javascript:;" class="listen"></a>
+                        <a href="javascript:;" data-stage= "1" class="read"></a>
+                        <span>Try again</span>
+                    </div>
+                    <div class="item item2">
+                        <span>Good</span>
+                        <a href="javascript:;" class="listen"></a>
+                        <a href="javascript:;" data-stage= "2" class="read"></a>
+                    </div>
+                    <div class="item item3">
+                        <a href="javascript:;" class="listen"></a>
+                        <a href="javascript:;" data-stage= "3" class="read"></a>
+                        <span>Excellent</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mask good">
+                <img src="img/game2_good.png">
+                <a href="index.html" class="pos-btn game1-success"></a>
+            </div>
+            <audio src="img/simple.mp3" id="media1"></audio>
+            <audio src="img/medium.mp3" id="media2"></audio>
+            <audio src="img/difficult.mp3" id="media3"></audio>
+        </div>
+        <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+            //test
+            var tokenServerUrl = "http://121.196.222.36/WechatToken/getJsConfig";
+            document.write("<script src='" + tokenServerUrl + "?url=" + encodeURIComponent(window.location.href) + "&jsApiList=startRecord,stopRecord,onVoiceRecordEnd,uploadVoice'><\/script>");
+            //test end
+        </script>
+    </body>
+</html>

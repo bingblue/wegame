@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>奖品列表</title>
+        <meta name="Keywords" content="">
+        <meta name="Description" content="">
+        <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+        <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+        <meta content="no-cache,must-revalidate" http-equiv="Cache-Control">
+        <meta content="no-cache" http-equiv="pragma">
+        <meta content="0" http-equiv="expires">
+        <meta content="telephone=no, address=no" name="format-detection">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+        <script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+
+    <body>
+        <div class="wrap">
+            <div class="main">
+                <img src="img/prize_head.jpg">
+                <div class="prize">
+                    <!-- <div class="item">
+                      <div class="item-img"><img src="img/prize_item.png"></div>
+                      <span class="item-name">BOTTEGA VENETA钱包</span>
+                      <span class="item-price">参考价：<br>￥2300</span>
+                    </div>
+                    <div class="item">
+                      <div class="item-img"><img src="img/prize_item.png"></div>
+                      <span class="item-name">BOTTEGA VENETA钱包</span>
+                      <span class="item-price">参考价：<br>￥2300</span>
+                    </div>
+                    <div class="item">
+                      <div class="item-img"><img src="img/prize_item.png"></div>
+                      <span class="item-name">BOTTEGA VENETA钱包</span>
+                      <span class="item-price">参考价：<br>￥2300</span>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        $(function () {
+            initWxShare();
+            muGet(config.getPrizeList, function (data) {
+                data = data.data
+                $('.prize').empty()
+                data.forEach(function (val, index) {
+                    var newHtml = '<div class="item">' +
+                            '<div class="item-img"><img src="' + val.imgUrl + '"></div>' +
+                            '<span class="item-name">' + val.name + '</span>' +
+                            '<span class="item-price">参考价：<br>￥' + val.price + '</span>' +
+                            '</div>'
+                    $(newHtml).appendTo($('.prize'))
+                })
+            })
+        })
+    </script>
+</html>

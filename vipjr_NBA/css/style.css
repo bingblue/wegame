@@ -1,0 +1,252 @@
+@charset "UTF-8";
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 5px;
+  color: #fff;
+  border: 0;
+  background: #383838;
+}
+
+.pos-btn {
+  position: absolute;
+  display: inline-block;
+  width: 50%;
+  height: 6%;
+  padding: 10px 0;
+  text-align: center;
+  border: 1px solid red;
+  border: 0;
+  top: 84%;
+  left: 25%;
+}
+
+.wrap {
+  min-width: 320px;
+  max-width: 640px;
+  width: 100%;
+  min-height: 100%;
+  margin: 0 auto;
+  font-family: "微软雅黑", "宋体", Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  position: relative;
+  background: #f0b000;
+}
+.wrap-color{
+  background: #d22a09;
+}
+.main {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+#audio_btn {
+  position: fixed;
+  right: 20px;
+  top: 8.5%;
+  z-index: 200;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url(../img/mic_icon_01.png);
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+}
+
+#audio_btn.off {
+  /*background-position: 0px -50px;*/
+}
+
+audio {
+  height: 1px;
+  width: 1px;
+  display: none;
+}
+
+.pos {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.pos .index {
+  top: 76%;
+}
+
+.game1-ul {
+  position: absolute;
+  top: 46.5%;
+  left: 8%;
+  width: 84%;
+  height: 31%;
+}
+
+.game1-ul li {
+  display: block;
+  border: 1px solid #51b4e6;
+  margin-bottom: 2%;
+  font-size: 6px;
+  border-radius: 5px;
+  width: 91%;
+  padding: 0.8% 0;
+  margin-left: 4%;
+  position: relative;
+}
+
+.game1-ul li span {
+  font-size: 18px;
+}
+
+.game1-ul li img.check {
+  position: absolute;
+  height: 64.7%;
+  right: 2%;
+  width: auto;
+  top: 18.5%;
+  display: none;
+}
+
+.game1-ul li.active {
+  background: #ffe55f;
+  border-color: #ffe55f;
+}
+
+.game1-ul li.active img.check {
+  display: block;
+}
+
+.game5-form input,
+.game5-form select {
+  position: absolute;
+  width: 84%;
+  top: 40%;
+  height: 6%;
+  padding: 0 3%;
+  left: 4%;
+  border-radius: 5px;
+  border: 0;
+  font-size: 18px;
+  -webkit-appearance: none;
+}
+
+.game5-form select.ipt2 {
+  background: #fff;
+  width: 81%;
+  top: 49%;
+}
+
+.game5-form input.ipt3 {
+  top: 58%;
+}
+
+.game5-form input.ipt4 {
+  top: 66.7%;
+}
+
+.game5-form a.countdown {
+  position: absolute;
+  width: auto;
+  padding: 2.5% 3%;
+  right: 5%;
+  border-radius: 5px;
+  font-size: 18px;
+  top: 66.6%;
+  background: #ff515d;
+  color: #fff;
+  text-align: center;
+}
+.game6-pos{
+  width: 81.6%;
+  left: 9.2%;
+  top: 29%;
+}
+.game6-pos .zz{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.main2{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+.main2 .end{
+  top: 68%;
+}
+.main2 .prize{
+  position: absolute;
+  color: #fff;
+  font-size: 18px;
+  top: 43%;
+  left: 47%;
+}
+.game5-form form{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+  color:#999;
+}
+
+.mask {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.mask img {
+  position: absolute;
+  top: 14%;
+  left: 0;
+}
+
+.mask a {
+  top: 49%;
+  left: 25%;
+}
+
+.mask .winc {
+  position: relative;
+  top: 14%;
+  text-align: center;
+}
+
+.mask img{
+  top: 0;
+}
+.mask a{
+  top: 59%;
+}
+
+@-webkit-keyframes ani-game3-9 {
+  0% {
+    -webkit-transform: translate(0, 0);
+    ;
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(-117%, -113%);
+    }
+    70% {
+        transform: translate(-117%, -113%);
+    }
+    100% {
+        -webkit-transform: translate(-232%, -224%);
+        transform: translate(-232%, -224%);
+    }
+}

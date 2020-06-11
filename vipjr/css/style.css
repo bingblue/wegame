@@ -1,0 +1,492 @@
+@charset "UTF-8";
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 5px;
+    color: #fff;
+    border: 0;
+    background: #383838; }
+
+.pos-btn {
+    position: absolute;
+    display: inline-block;
+    width: 50%;
+    height: 6%;
+    padding: 10px 0;
+    text-align: center;
+    border:1px solid red;
+    border: 0; 
+}
+.wrap {
+    min-width: 320px;
+    max-width: 640px;
+    width: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+    font-family: "微软雅黑", "宋体", Arial, Helvetica, sans-serif;
+    overflow: hidden;
+    position: relative;
+    background: #f7d800; }
+
+.main {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative; }
+
+#audio_btn {
+    position: fixed;
+    right: 20px;
+    top: 8.5%;
+    z-index: 200;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-image: url(../img/mic_icon_01.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px; }
+
+#audio_btn.off {
+    /*background-position: 0px -50px;*/ }
+
+audio {
+    height: 1px;
+    width: 1px;
+    display: none; }
+
+.pos{
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.pos .game1{
+    bottom:38%;
+    left: 25%;
+}
+.pos .game2{
+    bottom:25%;
+    left: 25%;
+}
+.pos .game3{
+    bottom:11%;
+    left: 25%;
+}
+.back{
+    position: absolute;
+    width: 5%;
+    height: 5%;
+    top: 1%;
+    left: 2%;
+    z-index: 99999;
+}
+
+.animate h2{
+    position: absolute;
+    top: 17%;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+}
+.animate ul{
+    position: absolute;
+    top: 38%;
+    left: 0;
+    width: 100%;
+    height: 44%;
+}
+.animate li{
+    display: inline-block;
+    width: 24.2%;
+    margin-left: 5.6%;
+    margin-bottom: 2.5%;
+    padding: 7% 0%;
+    background: url('../img/game1_icon_lion.png') no-repeat center;
+    background-size: contain;
+    height: 11%;
+}
+.animate li a{
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    margin-top: 8%;
+}
+.animate li.active{
+    background-image: url('../img/game1_icon_lion_2.png')
+}
+.animate li.active a{
+    color: #f7d800;
+}
+.animate .game1-ok{
+    bottom: 7%;
+    left: 25%;
+}
+.mask{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+.mask img{
+    position: absolute;
+    top: 14%;
+    left: 0;
+}
+.mask a{
+    top: 49%;
+    left: 25%;
+}
+.mask .winc{
+    position: relative;
+    top: 14%;
+    text-align: center;
+}
+.item{
+    position: absolute;
+    top: 44%;
+    left: 0;
+    width: 100%;
+    height: 7%;
+}
+.item2{
+    top: 63.5%;
+}
+.item3{
+    top: 87%;
+}
+.item a,.item span{
+    position: absolute;
+    width: 9%;
+    height: 85%;
+    left: 22%;
+    top: 2%;
+}
+.item a.read{
+    background: url('../img/game2_icon_speak_1.png') no-repeat center;
+    background-size: contain;
+    left: 34.5%;
+    top: 8%;
+}
+.item a.read.active{
+    background-image: url('../img/game2_icon_speak.png')
+}
+.item2 a{
+    left: auto;
+    right: 22%;
+}
+.item2 a.read{
+    left: auto;
+    right: 33%;
+}
+.item span{
+    width: auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0e8df8;
+    border-radius: 80px;
+    color: #fff;
+    font-size: 13px;
+    left: 48%;
+    top: 10%;
+    opacity: 0;
+}
+.item2 span{
+    left: auto;
+    right: 45%;
+}
+
+.anti ul{
+    position: absolute;
+    width: 82%;
+    height: auto;
+    left: 8%;
+    top: 28%;
+    padding: 0 2%;
+
+}
+.anti li{
+    display: inline-block;
+    width: 28%;
+    margin: 2%;
+}
+.win{
+    z-index: 9999;
+}
+.win h3{
+    position: absolute;
+    width: 100%;
+    top: 33.5%;
+    left: 0%;
+    color: red;
+    font-size: 1.2rem;
+    text-align: center;
+}
+.complate{
+    position: absolute;
+    top: 49%;
+    right: 12%;
+    width: 21%;
+    height: auto;
+    display: none;
+}
+.game2-complate{
+    top: 63%;
+}
+.game3-complate{
+    top: 77%;
+}
+.people{
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+}
+.anti li img:nth-child(even){
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transform: rotateY(180deg);
+}
+.anti li img:nth-child(odd){
+    position: relative;
+    backface-visibility: hidden;
+    z-index: 5;
+    transform: rotateY(180deg);
+}
+.music-ani {
+    -webkit-transform-origin: 50% 50%;
+    animation-timing-function: linear;/*linear,ease,ease-in,ease-in-out,ease-out*/
+    -webkit-animation-name: "music-ani";/*动画属性名，也就是我们前面keyframes定义的动画名*/
+    -webkit-animation-duration: 100s;/*动画持续时间*/
+    -webkit-animation-delay: 0s;/*动画延迟时间*/
+    -webkit-animation-iteration-count: infinite;/*定义循环资料，infinite为无限次*/
+    -webkit-animation-fill-mode: forwards;/* forwards 固定在最后一帧| backwards 固定在第一帧*/ 
+}
+.ani-game3 li,.ani-game3-win,.ani-game3 .ani0{
+    -webkit-transform-origin: 50% 50%;
+    animation-timing-function: linear;
+    -webkit-animation-duration: .5s;/*动画持续时间*/
+    -webkit-animation-delay: 3s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+}
+.ani-game3 .ani0{
+    -webkit-animation-name: "ani-game3-0";
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 1s;
+}
+.ani-game3.ani-game3-static,.ani-game3.ani-game3-static li,.ani-game3.ani-game3-static .ani0{
+    -webkit-animation-delay: 99999s;
+}
+.ani-game3-win{
+    -webkit-animation-name: "ani-game3-win";
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 0s;
+}
+.ani-game3 li{
+    -webkit-animation-duration: 1.5s;/*动画持续时间*/
+}
+.ani-game3 li:nth-child(1){
+    -webkit-animation-name: "ani-game3-1";
+}
+.ani-game3 li:nth-child(2){
+    -webkit-animation-name: "ani-game3-2";
+}
+.ani-game3 li:nth-child(3){
+    -webkit-animation-name: "ani-game3-3";
+}
+.ani-game3 li:nth-child(4){
+    -webkit-animation-name: "ani-game3-4";
+}
+.ani-game3 li:nth-child(5){
+    -webkit-animation-name: "ani-game3-5";
+}
+.ani-game3 li:nth-child(6){
+    -webkit-animation-name: "ani-game3-6";
+}
+.ani-game3 li:nth-child(7){
+    -webkit-animation-name: "ani-game3-7";
+}
+.ani-game3 li:nth-child(8){
+    -webkit-animation-name: "ani-game3-8";
+}
+.ani-game3 li:nth-child(9){
+    -webkit-animation-name: "ani-game3-9";
+} 
+@keyframes ani-game3-0{
+    to {
+        transform: rotateY(0deg);
+    }
+} 
+@keyframes ani-game3-win{
+    from{
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(180deg);
+    }
+}    
+@-webkit-keyframes music-ani {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg); }
+    100% {
+        -webkit-transform: rotate(36000deg);
+        transform: rotate(36000deg); } 
+}
+@-webkit-keyframes ani-game3-1 {
+    0% {
+        -webkit-transform: translate(0,0);;
+        transform: translate(0,0); 
+    }
+    50%{
+        transform: translate(119%,113%); 
+    }
+    70%{
+        transform: translate(119%,113%); 
+    }
+    100% {
+        -webkit-transform: translate(119%,113%);
+        transform: translate(119%,113%); 
+    } 
+}
+@-webkit-keyframes ani-game3-2 {
+    0% {
+        -webkit-transform: translate(0,0);;
+        transform: translate(0,0); 
+    }
+    50%{
+        transform: translate(0%,113%); 
+    }
+    70%{
+        transform: translate(0%,113%); 
+    }
+    100% {
+        -webkit-transform: translate(-116%,112%);
+        transform: translate(-116%,112%); 
+    } 
+}
+@-webkit-keyframes ani-game3-3 {
+    0% {
+        -webkit-transform: translate(0,0);;
+        transform: translate(0,0); 
+    }
+    70%{
+        transform: translate(-119%,113%); 
+    }
+    50%{
+        transform: translate(-119%,113%); 
+    }
+    100% {
+        -webkit-transform: translate(-232%,224%);
+        transform: translate(-232%,224%); 
+    } 
+}
+@-webkit-keyframes ani-game3-4 {
+    0% {
+        -webkit-transform: translate(0,0);;
+        transform: translate(0,0); 
+    }
+    50%{
+        transform: translate(117%,0%); 
+    }
+    70%{
+        transform: translate(117%,0%); 
+    }
+    100% {
+        -webkit-transform: translate(234%,0%);
+        transform: translate(234%,0%); 
+    } 
+}
+@-webkit-keyframes ani-game3-5 {
+    0% {
+        -webkit-transform: translate(0,0);;
+        transform: translate(0,0); 
+    }
+    50%{
+        transform: translate(0%,0%); 
+    }
+    70%{
+        transform: translate(0%,0%); 
+    }
+    100% {
+        -webkit-transform: translate(0%,-112%);
+        transform: translate(0%,-112%); 
+    } 
+}
+@-webkit-keyframes ani-game3-6 {
+    0% {
+        -webkit-transform: translate(0,0);;
+        transform: translate(0,0); 
+    }
+    50%{
+        transform: translate(-117%,0%); 
+    }
+    70%{
+        transform: translate(-117%,0%); 
+    }
+    100% {
+        -webkit-transform: translate(-116%,112%);
+        transform: translate(-116%,112%); 
+    } 
+}
+@-webkit-keyframes ani-game3-7 {
+    0% {
+        -webkit-transform: translate(0,0);;
+        transform: translate(0,0); 
+    }
+    50%{
+        transform: translate(117%,-113%); 
+    }
+    70%{
+        transform: translate(117%,-113%); 
+    }
+    100% {
+        -webkit-transform: translate(232%,0%);
+        transform: translate(232%,0%); 
+    } 
+}
+@-webkit-keyframes ani-game3-8 {
+    0% {
+        -webkit-transform: translate(0,0);;
+        transform: translate(0,0); 
+    }
+    50%{
+        transform: translate(0%,-113%); 
+    }
+    70%{
+        transform: translate(0%,-113%); 
+    }
+    100% {
+        -webkit-transform: translate(116%,-224%);
+        transform: translate(116%,-224%); 
+    } 
+}
+@-webkit-keyframes ani-game3-9 {
+    0% {
+        -webkit-transform: translate(0,0);;
+        transform: translate(0,0); 
+    }
+    50%{
+        transform: translate(-117%,-113%); 
+    }
+    70%{
+        transform: translate(-117%,-113%); 
+    }
+    100% {
+        -webkit-transform: translate(-232%,-224%);
+        transform: translate(-232%,-224%); 
+    } 
+}
