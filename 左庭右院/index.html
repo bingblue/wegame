@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>首页</title>
+  <meta name="Keywords" content="" />
+  <meta name="Description" content="" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+  <meta content="no-cache,must-revalidate" http-equiv="Cache-Control" />
+  <meta content="no-cache" http-equiv="pragma" />
+  <meta content="0" http-equiv="expires" />
+  <meta content="telephone=no, address=no" name="format-detection" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+  <script src="js/main.js"></script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="main">
+      <img src="img/bg.jpg" />
+      <div class="pos">
+        <img src="img/huoguo.png" class="pos ani img-huoguo" />
+        <img src="img/index_prize_bg.png" class="pos ani img-prbg" />
+        <img src="img/index_prize.png" class="pos img-pr" />
+        <a href="./join.html" class="pos btn-join"></a>
+        <img src="img/index_thing1.png" class="pos img-thing1" />
+        <img src="img/index_thing2.png" class="pos img-thing2" />
+        <img src="img/index_thing3.png" class="pos img-thing3" />
+        <img src="img/index_thing4.png" class="pos img-thing4" />
+        <span class="pos txt-starttime">2018.12.24</span>
+        <span class="pos txt-endtime">2019.01.24</span>
+        <span class="pos txt-d">00</span>
+        <span class="pos txt-h">00</span>
+        <span class="pos txt-m">00</span>
+        <span class="pos txt-s">00</span>
+        <p class="pos p-rule">
+          1.在指定期间内到店消费，即 可获得抽奖机会。<br />
+          2.每个消费小票只可参与一次抽奖，分享本次活动将额外获得一次抽奖机会。<br />
+          2.每个消费小票只可参与一次抽奖，分享本次活动将额外获得一次抽奖机会。<br />
+          2.每个消费小票只可参与一次抽奖，分享本次活动将额外获得一次抽奖机会。<br />
+          3.活动将于指定时间开奖。
+        </p>
+        <a href="./prize.html" class="pos btn-prize"></a>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  $(function () {
+    initWxShare();
+    muGet(config.getActivityInfo, function (data) {
+      data = data.data;
+      //倒计时
+      countdown(
+        new Date(data.endDate.replace(/-/g, "/")),
+        new Date(data.startDate.replace(/-/g, "/"))
+      );
+      var startTime = data.startDate.slice(0, 10).replace(/-/g, ".");
+      var endTime = data.endDate.slice(0, 10).replace(/-/g, ".");
+      var rule = data.ruleHtml;
+      $(".txt-starttime").text(startTime);
+      $(".txt-endtime").text(endTime);
+      $(".p-rule").html(rule);
+    });
+    // 监听滚动条添加动画
+    $(document).scroll(function () {
+      var scroH = $(document).scrollTop();
+      console.log(scroH);
+      if (scroH > 700) {
+        $(".img-thing1").addClass("ani");
+      }
+      if (scroH > 1000) {
+        $(".img-thing2").addClass("ani");
+        $(".img-thing3").addClass("ani");
+      }
+      if (scroH > 1400) {
+        $(".img-thing4").addClass("ani");
+      }
+    });
+  });
+</script>
+
+</html>

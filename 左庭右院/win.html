@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>中奖名单</title>
+  <meta name="Keywords" content="" />
+  <meta name="Description" content="" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+  <meta content="no-cache,must-revalidate" http-equiv="Cache-Control" />
+  <meta content="no-cache" http-equiv="pragma" />
+  <meta content="0" http-equiv="expires" />
+  <meta content="telephone=no, address=no" name="format-detection" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+  <script src="js/main.js"></script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="main">
+      <img src="img/win.jpg" />
+      <div class="pos">
+        <div class="pos pos-lucky"></div>
+        <div class="pos pos-sunlight"></div>
+        <div class="pos pos-remark">
+          注意事项：<br />
+          1.原始结账单小票是领奖凭证，二次打印、复印、拍照无效，请妥善保管，如果小票遗失，将无法领取奖品；<br />
+          2.领奖时需要核验手机号、姓名及消费门店，请认真填写抽奖信息。<br />
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  $(function () {
+    initWxShare();
+    muGet(config.getWinnerList, function (data) {
+      var firstPrize = data.data.firstPrize;
+      var secondPrize = data.data.secondPrize;
+      $(".pos-lucky").empty();
+      $(".pos-sunlight").empty();
+      firstPrize.forEach(function (val, index) {
+        var newHtml =
+          "<p>" +
+          "小票号：" +
+          val.ticketCode +
+          "<br>" +
+          "姓名：" +
+          val.username +
+          "<br>" +
+          "手机号：" +
+          val.phone +
+          "<br>" +
+          "</p>";
+        $(newHtml).appendTo($(".pos-lucky"));
+      });
+      secondPrize.forEach(function (val, index) {
+        var newHtml =
+          "<p>" +
+          "小票号：" +
+          val.ticketCode +
+          "<br>" +
+          "姓名：" +
+          val.username +
+          "<br>" +
+          "手机号：" +
+          val.phone +
+          "<br>" +
+          "</p>";
+        $(newHtml).appendTo($(".pos-sunlight"));
+      });
+    });
+  });
+</script>
+
+</html>

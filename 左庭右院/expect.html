@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>敬请期待</title>
+  <meta name="Keywords" content="" />
+  <meta name="Description" content="" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+  <meta content="no-cache,must-revalidate" http-equiv="Cache-Control" />
+  <meta content="no-cache" http-equiv="pragma" />
+  <meta content="0" http-equiv="expires" />
+  <meta content="telephone=no, address=no" name="format-detection" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+  <script src="js/main.js"></script>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="main">
+      <img src="img/expect.jpg" />
+      <div class="pos">
+        <img src="img/expect_star1.png" class="pos ani img-star1" />
+        <img src="img/expect_star2.png" class="pos ani img-star2" />
+        <span class="pos txt-expect-time"></span>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  $(function () {
+    initWxShare();
+
+    muGet(config.getActivityInfo, function (data) {
+      data = data.data;
+      var lotteryDate = data.lotteryDate.slice(0, 16).replace(/-/g, ".");
+      $(".txt-expect-time").text(lotteryDate);
+    });
+  });
+</script>
+
+</html>
