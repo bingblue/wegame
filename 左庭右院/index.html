@@ -25,11 +25,28 @@
   <div class="wrap">
     <div class="main">
       <img src="img/bg_home.jpg" />
-      <div class="pos">
+      <div class="pos jq-start">
         <img src="img/bg_home.png" class="pos" />
         <a href="javascript:;" class="pos btn-rule"></a>
         <a href="javascript:;" class="pos btn-start"></a>
       </div>
+    </div>
+    <div class="mask mask-tips">
+      <img src="img/bg_start.jpgw">
+      <div class="pos jq-know">
+        <img src="img/bg_know.jpg" class="pos" />
+        <a href="javascript:;" class="pos btn-know"></a>
+      </div>
+    </div>
+    <div class="mask mask-rule">
+      <img src="img/rule.png">
+      <a href="javascript:;" class="pos btn-colse"></a>
+      <a href="javascript:;" class="pos btn-tops"></a>
+    </div>
+    <div class="mask mask-tops">
+      <img src="img/tops.png">
+      <a href="javascript:;" class="pos btn-colse"></a>
+      <a href="javascript:;" class="pos btn-rules"></a>
     </div>
   </div>
 </body>
@@ -37,18 +54,29 @@
   $(function () {
     // initWxShare()
     // 监听滚动条添加动画
-    $(document).scroll(function () {
-      var scroH = $(document).scrollTop()
-      if (scroH > 700) {
-        $(".img-thing1").addClass("ani")
-      }
-      if (scroH > 1000) {
-        $(".img-thing2").addClass("ani")
-        $(".img-thing3").addClass("ani")
-      }
-      if (scroH > 1400) {
-        $(".img-thing4").addClass("ani")
-      }
+    $('.btn-rule').click(() => {
+      $('.mask-rule').show()
+    })
+    $('.btn-tops').click(() => {
+      $('.mask').hide()
+      $('.mask-tops').show()
+    })
+    $('.btn-rules').click(() => {
+      $('.mask').hide()
+      $('.mask-rule').show()
+    })
+    $('.btn-colse').click(() => {
+      $('.mask').hide()
+    })
+    $('.btn-start').click(() => {
+      $('.jq-start').animate({
+        top: -9000
+      }, () => {
+        $('.mask-tips').slideDown(200)
+      })
+    })
+    $('.btn-know').click(() => {
+      $('.jq-know').hide()
     })
   })
 </script>
