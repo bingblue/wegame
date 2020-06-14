@@ -23,16 +23,58 @@
 
 <body>
   <div class="wrap">
+    <a href="javascript:;" class="pos btn-rule"></a>
     <div class="main">
       <img src="img/bg_home.jpg" />
       <div class="pos jq-start">
         <img src="img/bg_home.png" class="pos" />
-        <a href="javascript:;" class="pos btn-rule"></a>
         <a href="javascript:;" class="pos btn-start"></a>
       </div>
     </div>
     <div class="mask mask-tips">
-      <img src="img/bg_start.jpgw">
+      <img src="img/game.jpg" />
+      <div class="pos jq-game">
+        <div class="pos nums">
+          <span class="num1">0</span>
+          <span class="num2">0</span>
+          <span class="num3">0</span>
+          <span class="num4">0</span>
+          <span class="num5">0</span>
+          <span class="num6">0</span>
+          <span class="num7">0</span>
+        </div>
+        <div class="pos games">
+          <img data-order="1" src="img/game/game1.jpg">
+          <img data-order="2" src="img/game/game2.jpg">
+          <img data-order="3" src="img/game/game3.jpg">
+          <img data-order="4" src="img/game/game4.jpg">
+          <img data-order="5" src="img/game/game5.jpg">
+          <img data-order="6" src="img/game/game6.jpg">
+          <img data-order="7" src="img/game/game7.jpg">
+          <img data-order="8" src="img/game/game8.jpg">
+          <img data-order="9" src="img/game/game9.jpg">
+        </div>
+      </div>
+      <div class="pos jq-tips">
+        <img src="img/tips.png" class="pos" />
+        <img src="img/hand.png" class="pos img-hand" />
+        <a href="javascript:;" class="pos btn-tips"></a>
+      </div>
+    </div>
+    <div class="mask mask-know">
+      <img src="img/bg_start.jpg">
+      <div class="pos jq-part">
+        <a href="javascript:;" data-id="part1" class="pos btn-1"></a>
+        <a href="javascript:;" data-id="part2" class="pos btn-2"></a>
+        <a href="javascript:;" data-id="part3" class="pos btn-3"></a>
+        <a href="javascript:;" data-id="part4" class="pos btn-4"></a>
+        <a href="javascript:;" data-id="part5" class="pos btn-5"></a>
+        <a href="javascript:;" data-id="part6" class="pos btn-6"></a>
+        <a href="javascript:;" data-id="part7" class="pos btn-7"></a>
+        <a href="javascript:;" data-id="part8" class="pos btn-8"></a>
+        <a href="javascript:;" data-id="part9" class="pos btn-9"></a>
+        <a href="javascript:;" data-id="start" class="pos btn-10"></a>
+      </div>
       <div class="pos jq-know">
         <img src="img/bg_know.jpg" class="pos" />
         <a href="javascript:;" class="pos btn-know"></a>
@@ -48,6 +90,13 @@
       <a href="javascript:;" class="pos btn-colse"></a>
       <a href="javascript:;" class="pos btn-rules"></a>
     </div>
+    <div class="mask mask-share">
+      <img src="img/share.png">
+    </div>
+    <div class="mask mask-success">
+      <img src="img/success.png">
+      <a href="javascript:;" class="pos btn-success"></a>
+    </div>
   </div>
 </body>
 <script>
@@ -58,25 +107,67 @@
       $('.mask-rule').show()
     })
     $('.btn-tops').click(() => {
-      $('.mask').hide()
+      $('.mask-rule').hide()
       $('.mask-tops').show()
     })
     $('.btn-rules').click(() => {
-      $('.mask').hide()
+      $('.mask-tops').hide()
       $('.mask-rule').show()
     })
     $('.btn-colse').click(() => {
-      $('.mask').hide()
+      $('.mask-rule').hide()
+      $('.mask-tops').hide()
     })
     $('.btn-start').click(() => {
       $('.jq-start').animate({
         top: -9000
       }, () => {
-        $('.mask-tips').slideDown(200)
+        $('.mask-know').slideDown(200)
       })
     })
     $('.btn-know').click(() => {
       $('.jq-know').hide()
+    })
+    $('.jq-part a').click(function() {
+      const key = $(this).data('id')
+      switch (key) {
+        case 'part1':
+          alert(1)
+          break;
+        case 'part2':
+          alert(2)
+          break;
+        case 'part3':
+          alert(3)
+          break;
+        case 'part4':
+          alert(4)
+          break;
+        case 'part5':
+          alert(5)
+          break;
+        case 'part6':
+          alert(6)
+          break;
+        case 'part7':
+          alert(7)
+          break;
+        case 'part8':
+          alert(8)
+          break;
+        case 'part9':
+          alert(9)
+          break;
+        case 'start':
+          $('.mask').hide()
+          $('.mask-tips').show()
+          break;
+        default:
+          break;
+      }
+    })
+    $('.btn-tips').click(() => {
+      $('.jq-tips').hide()
     })
   })
 </script>
