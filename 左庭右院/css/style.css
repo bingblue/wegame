@@ -160,7 +160,7 @@
   width: 17.3%;
   height: auto;
   top: 49%;
-  left: 48%;
+  left: 45%;
 }
 .btn-tips {
   width: 36%;
@@ -255,18 +255,23 @@
   /* forwards 固定在最后一帧| backwards 固定在第一帧*/
   -webkit-animation-fill-mode: forwards;
 }
-.img-huoguo {
-  -webkit-animation-name: "huoguo-ani";
-  -webkit-animation-duration: 2.3s;
+.img-hand {
+  -webkit-animation-name: "hand-ani";
+  -webkit-transform-origin: 90% 90%;
+  -webkit-animation-duration: 1s;
 }
 
-@keyframes music-ani {
+@keyframes hand-ani {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+  50% {
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+  }
   100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 }

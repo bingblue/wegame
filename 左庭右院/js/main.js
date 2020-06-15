@@ -52,41 +52,147 @@ function muPost(url, data, cb) {
     },
   })
 }
-function countdown(date, startDate) {
-  // var date = '2019-01-12 20:48:59'
-  var diff = 0
-  if (startDate - new Date() > 0) {
-    diff = date - startDate
-  } else {
-    diff = date - new Date()
+/* 计时 */
+let minute = 0
+let second = 0
+let millisecond = 0
+let millisecond2 = 0
+let t = null
+let t2 = null
+function timer () {
+  millisecond += 100
+  console.log(millisecond)
+  if( millisecond >= 1000) {
+    millisecond = 0
+    second += 1
   }
-
-  if (diff <= 0) {
-    $(".txt-d").text("00")
-    $(".txt-h").text("00")
-    $(".txt-m").text("00")
-    $(".txt-s").text("00")
-    return false
+  if(second >= 60) {
+    second = 0
+    minute += 1
   }
-  var d = Math.floor(diff / (24 * 3600 * 1000))
-  d = d > 9 ? d : "0" + d
-  var l1 = diff % (24 * 3600 * 1000)
-  var h = Math.floor(l1 / (3600 * 1000))
-  h = h > 9 ? h : "0" + h
-  var l2 = l1 % (3600 * 1000)
-  var m = Math.floor(l2 / (60 * 1000))
-  m = m > 9 ? m : "0" + m
-  var l3 = l2 % (60 * 1000)
-  var s = Math.round(l3 / 1000)
-  s = s > 9 ? s : "0" + s
-  $(".txt-d").text(d)
-  $(".txt-h").text(h)
-  $(".txt-m").text(m)
-  $(".txt-s").text(s)
-  setTimeout(function () {
-    countdown(date, startDate)
-  }, 1000)
+  millisecondStr = millisecond.toString()
+  secondStr = second.toString()
+  minuteStr = minute.toString()
+  let num1 = minute > 9 ? minuteStr[0] : 0
+  let num2 = minuteStr[1] || minuteStr[0]
+  let num3 = second > 9 ? secondStr[0] : 0
+  let num4 = secondStr[1] || secondStr[0]
+  let num5 = millisecond > 99 ? millisecondStr[0] : 0
+  let num6 = millisecond > 9 ? millisecondStr[1] : 0
+  let num7 = millisecondStr[4] || millisecondStr[3] || millisecondStr[2] || millisecondStr[1] || millisecondStr[0]
+  $(".num1").text(num1)
+  $(".num2").text(num2)
+  $(".num3").text(num3)
+  $(".num4").text(num4)
+  $(".num5").text(num5)
+  // $(".num6").text(num6)
+  // $(".num7").text(num7)
 }
+function timer2 () {
+  millisecond2 += 1
+  if (millisecond2 > 9) millisecond2 = 0
+  $(".num6").text(millisecond2)
+  let num7 = millisecond2 + 1
+  $(".num7").text(num7.toString()[0])
+}
+function startTimer () {
+  return false
+  t = setInterval(function () {
+    timer()
+  }, 100)
+  t2 = setInterval(function () {
+    timer2()
+  }, 30)
+}
+function clearTimer () {
+  window.clearTimeout(t)
+  window.clearTimeout(t2)
+}
+/* 计时 END */
+
+let touchFlag = true
+function change ($this, diff) {
+  if (!touchFlag) return false
+  touchFlag = false
+  console.log('diff', diff)
+  let imgs = $('.games img')
+  let index = imgs.index($this)
+  let changeIndex = index + diff
+  console.log('changeIndex', changeIndex)
+  if (changeIndex < 0 || changeIndex >= imgs.length) return false
+  let temp = imgs[index]
+  imgs[index] = imgs[changeIndex]
+  imgs[changeIndex] = temp
+  $(".games").html(imgs)
+  if(success()) {
+    // 成功
+    alert('成功')
+  } else {
+    touch()
+    setTimeout(function(){
+      touchFlag = true
+    }, 500)
+  }
+}
+
+function touch () {
+  $('.games img').mutouch({
+    banRight: true,
+    offsetX : 50,
+    offsetY : 50,
+    onSwipeLeft: function(type) {
+      // 左滑滑动
+      console.log('左滑滑动')
+      change(this.$this[0], -1)
+    },
+    onSwipeRight: function(type) {
+      // 右滑滑动
+      console.log('右滑滑动')
+      change(this.$this[0], 1)
+    },
+    onSwipeTop: function(type) {
+      if(type=="left"){
+        // 上左滑动
+        console.log('上左滑动')
+        change(this.$this[0], -4)
+      }else if(type=="right"){
+        // 上右滑动
+        console.log('上右滑动')
+        change(this.$this[0], -2)
+      }else{
+        // 上滑滑动
+        console.log('上滑滑动')
+        change(this.$this[0], -3)
+      }
+    },
+    onSwipeDown: function(type) {
+      if(type=="left"){
+        // 下左滑动
+        console.log('下左滑动')
+        change(this.$this[0], 2)
+      }else if(type=="right"){
+        // 下右滑动
+        console.log('下右滑动')
+        change(this.$this[0], 4)
+      }else{
+        // 下滑滑动
+        console.log('下滑滑动')
+        change(this.$this[0], 3)
+      }
+    }
+  })
+}
+
+function success () {
+  let result = true
+  $('.games img').each(function(i, v){
+    let order = $(this).data('order')
+    console.log(i, order)
+    if ((i+1) != order) result = false
+  })
+  return result
+}
+
 function initWxShare(shareSuccessCallback) {
   var url = window.location.href
   url = "?url=" + encodeURIComponent(url)
@@ -140,27 +246,12 @@ function initWxShare(shareSuccessCallback) {
 }
 $(function () {
   /**
-   * 倒计时功能
+   * 打乱 dom 顺序
    */
-  // var isSend = false
-  // var num = config.countdown
-  // $('.btn-send').click(function(){
-  //   if(isSend) return
-  //   isSend = true
-  //   var t = setInterval(function() {
-  //     if(num <= 0) {
-  //       $('.btn-send').css({
-  //         background: 'transparent'
-  //       }).text('')
-  //       clearInterval(t)
-  //       isSend = false
-  //       num = config.countdown
-  //       return
-  //     }
-  //     --num
-  //     $('.btn-send').css({
-  //       background: '#fc6'
-  //     }).text(num+'秒')
-  //   }, 1000)
-  // })
+  $('.mask-tips').show()
+  $(".games").html(Array.prototype.sort.call($('.games img'), function () {
+    return Math.random() - 0.5
+  }))
+  touch()
+  success()
 })
