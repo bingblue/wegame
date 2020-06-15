@@ -96,7 +96,6 @@ function timer2 () {
   $(".num7").text(num7.toString()[0])
 }
 function startTimer () {
-  return false
   t = setInterval(function () {
     timer()
   }, 100)
@@ -127,6 +126,7 @@ function change ($this, diff) {
   if(success()) {
     // 成功
     alert('成功')
+    clearTimer()
   } else {
     touch()
     setTimeout(function(){
