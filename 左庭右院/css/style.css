@@ -223,6 +223,38 @@
   line-height: 22px;
   letter-spacing: 6px;
 }
+.pos-info {
+  width: 59%;
+  height: 34%;
+  top: 35%;
+  left: 20%;
+  font-size: 20px;
+  text-align: center;
+}
+.info-title {
+  display: inline-block;
+  width: 100%;
+  margin-top: 20%;
+}
+.info-img {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: -5%;
+}
+.info-desc {
+  display: block;
+  font-size: 14px;
+  width: 90%;
+  margin: 0 5%;
+  margin-top: -5%;
+}
+.btn-info-close {
+  width: 11%;
+  height: 10%;
+  top: 7%;
+  left: 82%;
+}
 
 .mask,
 .mask2 {

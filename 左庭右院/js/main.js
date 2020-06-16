@@ -113,11 +113,9 @@ let touchFlag = true
 function change ($this, diff) {
   if (!touchFlag) return false
   touchFlag = false
-  console.log('diff', diff)
   let imgs = $('.games img')
   let index = imgs.index($this)
   let changeIndex = index + diff
-  console.log('changeIndex', changeIndex)
   if (changeIndex < 0 || changeIndex >= imgs.length) return false
   let temp = imgs[index]
   imgs[index] = imgs[changeIndex]
@@ -192,6 +190,62 @@ function success () {
   })
   return result
 }
+/**
+ * 打乱 dom 顺序
+ */
+function random () {
+  $(".games").html(Array.prototype.sort.call($('.games img'), function () {
+    return Math.random() - 0.5
+  }))
+}
+
+let infoArray = [{
+  name: '牛舌：',
+  img: 'img/part/part1.png',
+  desc: '牛的舌头，肉质香软，嚼劲十足。'
+},{
+  name: '雪花：',
+  img: 'img/part/part2.png',
+  desc: '牛脖仁，红白相间，呈大理石纹，爽滑略带嚼劲（即西餐中常见的上脑）。'
+},{
+  name: '吊龙：',
+  img: 'img/part/part3.png',
+  desc: '牛里脊，肉质鲜嫩，淡淡的油脂甘香（即西餐中常见的西冷和菲力）。'
+},{
+  name: '鲜牛肉：',
+  img: 'img/part/part4.png',
+  desc: '位于牛后腿上部嫩肉部分，嫩肉瘦中带肥，鲜嫩可口(即西餐中常见的肋眼牛排)'
+},{
+  name: '匙皮肉：',
+  img: 'img/part/part5.png',
+  desc: '牛肩胛里脊肉，肥瘦适中，爽滑鲜嫩。'
+},{
+  name: '胸口朥：',
+  img: 'img/part/part6.png',
+  desc: '牛胸口油，爽嫩弹压。'
+},{
+  name: '匙柄：',
+  img: 'img/part/part7.png',
+  desc: '牛前腿肉，穿插细筋，成树冠状，鲜嫩无渣。'
+},{
+  name: '肥胼：',
+  img: 'img/part/part8.png',
+  desc: '牛腹夹层肉，略有嚼劲。'
+},{
+  name: '腱子肉：',
+  img: 'img/part/part9.png',
+  desc: '牛腱子肉，口感介于脆嫩之间。'
+}]
+/**
+ * 设置 info 页面内容
+ */
+function setInfo (index) {
+  let obj = infoArray[index-1]
+  $('.info-title').text(obj.name)
+  $('.info-img').attr("src", obj.img)
+  $('.info-desc').text(obj.desc)
+  $('.mask-info').show()
+}
 
 function initWxShare(shareSuccessCallback) {
   var url = window.location.href
@@ -245,13 +299,6 @@ function initWxShare(shareSuccessCallback) {
   })
 }
 $(function () {
-  /**
-   * 打乱 dom 顺序
-   */
-  $('.mask-tips').show()
-  $(".games").html(Array.prototype.sort.call($('.games img'), function () {
-    return Math.random() - 0.5
-  }))
+  // $('.mask-info').show()
   touch()
-  success()
 })

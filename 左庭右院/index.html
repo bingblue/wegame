@@ -98,6 +98,15 @@
       <img src="img/success.png">
       <a href="javascript:;" class="pos btn-success"></a>
     </div>
+    <div class="mask mask-info">
+      <img src="img/info.png">
+      <div class="pos pos-info">
+        <span class="info-title">雪花：</span>
+        <img class="info-img" src="img/part/part2.png">
+        <span class="info-desc">牛脖仁，红白相间，呈大理石纹，爽滑略带嚼劲（即西餐中常见的上脑）</span>
+        <a href="javascript:;" class="pos btn-info-close"></a>
+      </div>
+    </div>
   </div>
 </body>
 <script>
@@ -119,11 +128,19 @@
       $('.mask-rule').hide()
       $('.mask-tops').hide()
     })
+    $('.btn-info-close').click(() => {
+      $('.mask-info').hide()
+    })
     $('.btn-start').click(() => {
+      $('.mask-know').show().css({
+        top: -1000
+      })
       $('.jq-start').animate({
-        top: -9000
+        top: -1000
       }, () => {
-        $('.mask-know').slideDown(200)
+        $('.mask-know').animate({
+          top: 0
+        })
       })
     })
     $('.btn-know').click(() => {
@@ -133,31 +150,31 @@
       const key = $(this).data('id')
       switch (key) {
         case 'part1':
-          alert(1)
+          setInfo(1)
           break;
         case 'part2':
-          alert(2)
+          setInfo(2)
           break;
         case 'part3':
-          alert(3)
+          setInfo(3)
           break;
         case 'part4':
-          alert(4)
+          setInfo(4)
           break;
         case 'part5':
-          alert(5)
+          setInfo(5)
           break;
         case 'part6':
-          alert(6)
+          setInfo(6)
           break;
         case 'part7':
-          alert(7)
+          setInfo(7)
           break;
         case 'part8':
-          alert(8)
+          setInfo(8)
           break;
         case 'part9':
-          alert(9)
+          setInfo(9)
           break;
         case 'start':
           $('.mask').hide()
