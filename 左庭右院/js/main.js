@@ -16,7 +16,7 @@ function muGet(url, cb) {
     url: url,
     dataType: "json",
     success: function (data) {
-      if (data.status == 0) {
+      if (data.status == 200) {
         cb(data)
       } else {
         alert(data.message)
@@ -38,7 +38,7 @@ function muPost(url, data, cb) {
     dataType: "json",
     contentType: "application/json charset=utf-8",
     success: function (data) {
-      if (data.status == 0) {
+      if (data.status == 200) {
         cb(data)
       } else {
         alert(data.message)
