@@ -61,7 +61,6 @@ let t = null
 let t2 = null
 function timer () {
   millisecond += 100
-  console.log(millisecond)
   if( millisecond >= 1000) {
     millisecond = 0
     second += 1
@@ -123,8 +122,10 @@ function change ($this, diff) {
   $(".games").html(imgs)
   if(success()) {
     // 成功
-    alert('成功')
     clearTimer()
+    setTimeout(function(){
+      $('.mask-share').show()
+    },50)
   } else {
     touch()
     setTimeout(function(){
@@ -185,7 +186,6 @@ function success () {
   let result = true
   $('.games img').each(function(i, v){
     let order = $(this).data('order')
-    console.log(i, order)
     if ((i+1) != order) result = false
   })
   return result
@@ -197,6 +197,7 @@ function random () {
   $(".games").html(Array.prototype.sort.call($('.games img'), function () {
     return Math.random() - 0.5
   }))
+  touch()
 }
 
 let infoArray = [{
@@ -300,5 +301,4 @@ function initWxShare(shareSuccessCallback) {
 }
 $(function () {
   // $('.mask-info').show()
-  touch()
 })
