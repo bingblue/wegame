@@ -1,4 +1,4 @@
-﻿var baseUrl = "http://h5.gelaoguan.sh.cn" //http://h5.gelaoguan.sh.cn http://localhost:8080/jl
+﻿var baseUrl = "http://sayming.iok.la:29850/publicApi" // http://yx.zuotingyouyuan.com/publicApi
 var config = {
   submitLottery: baseUrl + "/submitLottery", // 用户抽奖订单提交
   shareLottery: baseUrl + "/shareLottery", // 用户分享成功后添加抽奖订单
@@ -7,6 +7,9 @@ var config = {
   getWinnerList: baseUrl + "/getWinnerList", // 获取中奖名单
   getImageCode: baseUrl + "/getImageCode", // 获取图片验证码
   getWxConfig: baseUrl + "/getWxConfig", // 获取微信分享Config
+  getWxConfig: baseUrl + "/getWxConfig", // 获取微信分享Config
+  getGif: baseUrl + "/getGif", // 领券
+  wxConfig:{},
   countdown: 5, // 倒计时秒数
 }
 
@@ -253,6 +256,7 @@ function initWxShare(shareSuccessCallback) {
   url = "?url=" + encodeURIComponent(url)
 
   muGet(config.getWxConfig + url, function (data) {
+	config.wxConfig = data;
     var configData = {
       appId: data.data.appId, // 必填，公众号的唯一标识
       timestamp: data.data.timestamp, // 必填，生成签名的时间戳
@@ -304,9 +308,17 @@ function getUrlParam(name){
   var r = window.location.search.substr(1).match(reg);  //匹配目标参数
   if (r!=null) return unescape(r[2]); return null; //返回参数值
 }
+function getGif(){
+	muGet(config.getGif);
+	// TODO: 领取后跳转config.wxConfig.gifUrl页面
+}
 $(function () {
   let type = getUrlParam('type')
   if(type == '1') {
     $('.mask-phone').show()
   }
+  // 初始化initShare
+	initWxShare(function () {
+		// TODO: 分享成功后弹框领取奖品，领取奖品按钮调用getGif(data);
+	});
 })
