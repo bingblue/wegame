@@ -266,12 +266,29 @@
   width: 100%;
   /* background: rgba(0, 0, 0, 0.8) */
 }
+.mask-bg {
+  background: rgba(0, 0, 0, 0.8);
+}
 .mask-content {
   position: relative;
   width: 100%;
   height: auto;
 }
-
+.pos-phone {
+  top: 30%;
+}
+.pos-phone .btn-submit {
+  width: 21%;
+  height: 5%;
+  top: 19%;
+  left: 40%;
+}
+.pos-phone .ipt-phone {
+  width: 63%;
+  height: 3.5%;
+  top: 13%;
+  left: 19%;
+}
 
 .ani {
   -webkit-transform-origin: 50% 50%;

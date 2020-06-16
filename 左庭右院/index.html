@@ -98,6 +98,13 @@
       <img src="img/success.png">
       <a href="javascript:;" class="pos btn-success"></a>
     </div>
+    <div class="mask mask-phone mask-bg">
+      <div class="pos pos-phone">
+        <img src="img/phone.png">
+        <input type="number" class="pos ipt-phone" placeholder="请输入您的手机号">
+        <a href="javascript:;" class="pos btn-submit"></a>
+      </div>
+    </div>
     <div class="mask mask-info">
       <img src="img/info.png">
       <div class="pos pos-info">
@@ -188,6 +195,9 @@
       $('.jq-tips').hide()
       random()
       startTimer()
+    })
+    $('.btn-submit').click(() => {
+      $('.mask-phone').hide()
     })
   })
 </script>
