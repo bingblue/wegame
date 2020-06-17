@@ -183,6 +183,7 @@
       $('.mask-info').hide()
     })
     $('.btn-start').click(() => {
+    	if(!checkUser()) return;
       $('.mask-know').show().css({
         top: -1000
       })

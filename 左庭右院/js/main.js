@@ -1,11 +1,12 @@
-﻿// var baseUrl = "http://sayming.iok.la:29850/publicApi"
-var baseUrl = "http://yx.zuotingyouyuan.com/publicApi"
+﻿var baseUrl = "http://sayming.iok.la:29850"
+//var baseUrl = "http://yx.zuotingyouyuan.com"
 var config = {
-  topList: baseUrl + "/topList",         // 排行榜
-  addGameBill: baseUrl + "/addGameBill", // 添加成绩
-  create: baseUrl + "/create",           // 创建会员
-  getWxConfig: baseUrl + "/getWxConfig", // 获取微信分享Config
-  getGif: baseUrl + "/getGif",           // 领券
+  register: baseUrl + "/publicApi/register",  // 注册页
+  topList: baseUrl + "/publicApi/topList",         // 排行榜
+  addGameBill: baseUrl + "/publicApi/addGameBill", // 添加成绩
+  create: baseUrl + "/publicApi/create",           // 创建会员
+  getWxConfig: baseUrl + "/publicApi/getWxConfig", // 获取微信分享Config
+  getGif: baseUrl + "/publicApi/getGif",           // 领券
   wxConfig:{}
 }
 
@@ -47,7 +48,17 @@ function muGet(url, cb) {
       if (data.code == 200) {
         cb(data)
       } else {
-        alert(data.message)
+    	  if(data.code == 40001){// 重新登录
+    		  window.location.href = baseUrl
+    	  }else if(data.code == 40002){// 注册手机号
+    		  $('.mask-phone').show()
+    		  //window.location.href = config.register
+    	  }else if(data.code == 40003){// 成绩异常
+    		  alert(data.message)
+    		  window.location.href = baseUrl
+    	  }else{
+    		  alert(data.message)
+    	  }
       }
     },
     error: function (err) {
@@ -97,7 +108,7 @@ let t = null
 let t2 = null
 function timer () {
   millisecond += 100
-  millisecondData = millisecond
+  millisecondData += 100
   if( millisecond >= 1000) {
     millisecond = 0
     second += 1
@@ -160,7 +171,7 @@ function change ($this, diff) {
   if(success()) {
     // 成功
     clearTimer()
-    muPost(config.addGameBill, {time: millisecondData})
+    muGet(config.addGameBill + "?time=" + millisecondData)
     setTimeout(function(){
       $('.mask-share').show()
     },50)
@@ -286,12 +297,24 @@ function setInfo (index) {
   $('.mask-info').show()
 }
 
+function checkUser(){
+	var userInfo = config.wxConfig.userInfo;
+	if(userInfo == null || userInfo == ""){// 登录
+		window.location.href = config.wxConfig.userLoginUrl
+	}else if(userInfo.mobile == null || userInfo.mobile == ""){// 注册手机
+		$('.mask-phone').show()
+		return false;
+	}
+	return true;
+}
+
 function initWxShare(shareSuccessCallback) {
   var url = window.location.href
   url = "?url=" + encodeURIComponent(url)
 
   muGet(config.getWxConfig + url, function (data) {
-	  config.wxConfig = data;
+	config.wxConfig = data.data;
+	checkUser();
     var configData = {
       appId: data.data.appId, // 必填，公众号的唯一标识
       timestamp: data.data.timestamp, // 必填，生成签名的时间戳
@@ -344,7 +367,7 @@ function getUrlParam(name){
   if (r!=null) return unescape(r[2]); return null; //返回参数值
 }
 function getGif(){
-	muGet(config.getGif)
+  muGet(config.getGif)
   // TODO: 领取后跳转config.wxConfig.gifUrl页面
   window.location.href = config.wxConfig.gifUrl
 }
