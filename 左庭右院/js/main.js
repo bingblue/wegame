@@ -51,7 +51,7 @@ function muGet(url, cb) {
     error: function () {
       alert("网络异常，请重试!")
       setTimeout(function () {
-        window.location.reload(true)
+        // window.location.reload(true)
       }, 1000)
     },
   })
@@ -74,7 +74,7 @@ function muPost(url, data, cb) {
     error: function () {
       alert("网络异常，请重试!")
       setTimeout(function () {
-        window.location.reload(true)
+        // window.location.reload(true)
       }, 1000)
     },
   })
@@ -341,7 +341,7 @@ function getGif(){
   window.location.href = config.wxConfig.gifUrl
 }
 $(function () {
-  $('.mask-tops').show()
+  // $('.mask-tops').show()
   let type = getUrlParam('type')
   if(type == '1') {
     $('.mask-phone').show()
