@@ -50,7 +50,9 @@ function muGet(url, cb) {
         alert(data.message)
       }
     },
-    error: function () {
+    error: function (err) {
+      let dataStr = JSON.stringify(err)
+      alert(dataStr)
       alert("网络异常，请重试!")
       setTimeout(function () {
         // window.location.reload(true)
@@ -75,7 +77,9 @@ function muPost(url, data, cb) {
         alert(data.message)
       }
     },
-    error: function () {
+    error: function (err) {
+      let dataStr = JSON.stringify(err)
+      alert(dataStr)
       alert("网络异常，请重试!")
       setTimeout(function () {
         // window.location.reload(true)
