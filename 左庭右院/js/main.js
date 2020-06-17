@@ -387,7 +387,7 @@ $(function () {
    */
   muGet(config.topList, function (data) {
     $('.pos-tops').empty()
-    data.forEach((item, index) => {
+    data.data.forEach((item, index) => {
       let clzss = index == 0 ? 'one' : index == 1 ? 'two' : index == 2 ? 'three' : ''
       $(`<div class="item ${clzss}">
           <span class="num">${index + 1}</span>
