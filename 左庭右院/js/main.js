@@ -1,7 +1,6 @@
-﻿var baseUrl = "http://sayming.iok.la:29850"
-//var baseUrl = "http://yx.zuotingyouyuan.com"
+﻿//var baseUrl = "http://sayming.iok.la:29850"
+var baseUrl = "http://yx.zuotingyouyuan.com"
 var config = {
-  register: baseUrl + "/publicApi/register",  // 注册页
   topList: baseUrl + "/publicApi/topList",         // 排行榜
   addGameBill: baseUrl + "/publicApi/addGameBill", // 添加成绩
   create: baseUrl + "/publicApi/create",           // 创建会员
@@ -44,7 +43,7 @@ function muGet(url, cb) {
     dataType: "json",
     success: function (data) {
       let dataStr = JSON.stringify(data)
-      alert(dataStr)
+//      alert(dataStr)
       if (data.code == 200) {
         cb(data)
       } else {
@@ -63,7 +62,7 @@ function muGet(url, cb) {
     },
     error: function (err) {
       let dataStr = JSON.stringify(err)
-      alert(dataStr)
+//      alert(dataStr)
       alert("网络异常，请重试!")
       setTimeout(function () {
         // window.location.reload(true)
@@ -81,7 +80,7 @@ function muPost(url, data, cb) {
     contentType: "application/json charset=utf-8",
     success: function (data) {
       let dataStr = JSON.stringify(data)
-      alert(dataStr)
+//      alert(dataStr)
       if (data.code == 200) {
         cb(data)
       } else {
@@ -90,7 +89,7 @@ function muPost(url, data, cb) {
     },
     error: function (err) {
       let dataStr = JSON.stringify(err)
-      alert(dataStr)
+//      alert(dataStr)
       alert("网络异常，请重试!")
       setTimeout(function () {
         // window.location.reload(true)
@@ -321,10 +320,8 @@ function initWxShare(shareSuccessCallback) {
       nonceStr: data.data.nonceStr, // 必填，生成签名的随机串
       signature: data.data.signature, // 必填，签名
       jsApiList: [
-        "updateAppMessageShareData",
-        "updateTimeLineShareData",
-        "onMenuShareTimeline",
         "onMenuShareAppMessage",
+        "onMenuShareTimeline"
       ], // 必填，需要使用的JS接口列表
     }
     wx.config(configData)
@@ -338,23 +335,13 @@ function initWxShare(shareSuccessCallback) {
       }
       try {
         // 分享给朋友
-        wx.updateAppMessageShareData(shareData)
+        wx.onMenuShareAppMessage(shareData)
       } catch (err) {
         console.log(err)
       }
       try {
         // 分享到朋友圈
-        wx.updateTimeLineShareData(shareData)
-      } catch (err) {
-        console.log(err)
-      }
-      try {
         wx.onMenuShareTimeline(shareData)
-      } catch (err) {
-        console.log(err)
-      }
-      try {
-        wx.onMenuShareAppMessage(shareData)
       } catch (err) {
         console.log(err)
       }
@@ -378,7 +365,7 @@ $(function () {
     $('.mask-phone').show()
   }
   // 初始化initShare
-	initWxShare(function () {
+  initWxShare(function () {
     // TODO: 分享成功后弹框领取奖品，领取奖品按钮调用getGif(data);
     $('.mask-success').show()
   })
