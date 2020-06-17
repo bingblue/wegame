@@ -47,6 +47,16 @@
   position: relative;
 }
 
+.pos-main {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+  display: none;
+}
 .pos {
   position: absolute;
   display: inline-block;

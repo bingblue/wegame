@@ -32,7 +32,26 @@
         <a href="javascript:;" class="pos btn-start"></a>
       </div>
     </div>
-    <div class="mask mask-tips">
+    <div class="pos-main mask-know">
+      <img src="img/bg_start.jpg">
+      <div class="pos jq-part">
+        <a href="javascript:;" data-id="part1" class="pos btn-1"></a>
+        <a href="javascript:;" data-id="part2" class="pos btn-2"></a>
+        <a href="javascript:;" data-id="part3" class="pos btn-3"></a>
+        <a href="javascript:;" data-id="part4" class="pos btn-4"></a>
+        <a href="javascript:;" data-id="part5" class="pos btn-5"></a>
+        <a href="javascript:;" data-id="part6" class="pos btn-6"></a>
+        <a href="javascript:;" data-id="part7" class="pos btn-7"></a>
+        <a href="javascript:;" data-id="part8" class="pos btn-8"></a>
+        <a href="javascript:;" data-id="part9" class="pos btn-9"></a>
+        <a href="javascript:;" data-id="start" class="pos btn-10"></a>
+      </div>
+      <div class="pos jq-know">
+        <img src="img/bg_know.jpg" class="pos" />
+        <a href="javascript:;" class="pos btn-know"></a>
+      </div>
+    </div>
+    <div class="pos-main mask-tips">
       <img src="img/game.jpg" />
       <div class="pos jq-game">
         <div class="pos nums">
@@ -62,31 +81,12 @@
         <a href="javascript:;" class="pos btn-tips"></a>
       </div>
     </div>
-    <div class="mask mask-know">
-      <img src="img/bg_start.jpg">
-      <div class="pos jq-part">
-        <a href="javascript:;" data-id="part1" class="pos btn-1"></a>
-        <a href="javascript:;" data-id="part2" class="pos btn-2"></a>
-        <a href="javascript:;" data-id="part3" class="pos btn-3"></a>
-        <a href="javascript:;" data-id="part4" class="pos btn-4"></a>
-        <a href="javascript:;" data-id="part5" class="pos btn-5"></a>
-        <a href="javascript:;" data-id="part6" class="pos btn-6"></a>
-        <a href="javascript:;" data-id="part7" class="pos btn-7"></a>
-        <a href="javascript:;" data-id="part8" class="pos btn-8"></a>
-        <a href="javascript:;" data-id="part9" class="pos btn-9"></a>
-        <a href="javascript:;" data-id="start" class="pos btn-10"></a>
-      </div>
-      <div class="pos jq-know">
-        <img src="img/bg_know.jpg" class="pos" />
-        <a href="javascript:;" class="pos btn-know"></a>
-      </div>
-    </div>
-    <div class="mask mask-rule">
+    <div class="pos-main mask-rule">
       <img src="img/rule.png">
       <a href="javascript:;" class="pos btn-colse"></a>
       <a href="javascript:;" class="pos btn-tops"></a>
     </div>
-    <div class="mask mask-tops">
+    <div class="pos-main mask-tops">
       <img src="img/tops.png">
       <div class="pos pos-tops">
         <div class="item one">
@@ -135,21 +135,21 @@
       <a href="javascript:;" class="pos btn-colse"></a>
       <a href="javascript:;" class="pos btn-rules"></a>
     </div>
-    <div class="mask mask-share">
+    <div class="pos-main mask-share">
       <img src="img/share.png">
     </div>
-    <div class="mask mask-success">
+    <div class="pos-main mask-success">
       <img src="img/success.png">
       <a href="javascript:;" class="pos btn-success"></a>
     </div>
-    <div class="mask mask-phone mask-bg">
+    <div class="pos-main mask-phone mask-bg">
       <div class="pos pos-phone">
         <img src="img/phone.png">
         <input type="number" class="pos ipt-phone" placeholder="请输入您的手机号">
         <a href="javascript:;" class="pos btn-submit"></a>
       </div>
     </div>
-    <div class="mask mask-info">
+    <div class="pos-main mask-info">
       <img src="img/info.png">
       <div class="pos pos-info">
         <span class="info-title">雪花：</span>
@@ -228,7 +228,7 @@
           setInfo(9)
           break;
         case 'start':
-          $('.mask').hide()
+          $('.pos-main').hide()
           $('.mask-tips').show()
           break;
         default:
@@ -241,7 +241,12 @@
       startTimer()
     })
     $('.btn-submit').click(() => {
+      let mobile = $('.ipt-phone').val()
+      muGet(config.create + '?mobile=' + mobile)
       $('.mask-phone').hide()
+    })
+    $('.btn-success').click(() => {
+      getGif()
     })
   })
 </script>

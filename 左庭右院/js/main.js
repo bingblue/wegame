@@ -2,39 +2,41 @@
 var baseUrl = "http://yx.zuotingyouyuan.com/publicApi"
 var config = {
   topList: baseUrl + "/topList",         // 排行榜
+  addGameBill: baseUrl + "/addGameBill", // 添加成绩
+  create: baseUrl + "/create",           // 创建会员
   getWxConfig: baseUrl + "/getWxConfig", // 获取微信分享Config
   getGif: baseUrl + "/getGif",           // 领券
   wxConfig:{}
 }
 
 function muGet(url, cb) {
-  cb([
-    {
-      "nickname": "1",
-      "headimgurl": "img/hand.png",
-      "time": 1,
-      "memberId": 1
-    },
-    {
-      "nickname": "2",
-      "headimgurl": "img/hand.png",
-      "time": 1,
-      "memberId": 2
-    },
-    {
-      "nickname": "3",
-      "headimgurl": "img/hand.png",
-      "time": 1,
-      "memberId": 3
-    },
-    {
-      "nickname": "4",
-      "headimgurl": "img/hand.png",
-      "time": 4,
-      "memberId": 4
-    }
-  ])
-  return
+  // cb([
+  //   {
+  //     "nickname": "1",
+  //     "headimgurl": "img/hand.png",
+  //     "time": 1,
+  //     "memberId": 1
+  //   },
+  //   {
+  //     "nickname": "2",
+  //     "headimgurl": "img/hand.png",
+  //     "time": 1,
+  //     "memberId": 2
+  //   },
+  //   {
+  //     "nickname": "3",
+  //     "headimgurl": "img/hand.png",
+  //     "time": 1,
+  //     "memberId": 3
+  //   },
+  //   {
+  //     "nickname": "4",
+  //     "headimgurl": "img/hand.png",
+  //     "time": 4,
+  //     "memberId": 4
+  //   }
+  // ])
+  // return
   $.ajax({
     type: "GET",
     url: url,
@@ -55,7 +57,7 @@ function muGet(url, cb) {
   })
 }
 function muPost(url, data, cb) {
-  return
+  // return
   $.ajax({
     type: "POST",
     url: url,
@@ -81,11 +83,13 @@ function muPost(url, data, cb) {
 let minute = 0
 let second = 0
 let millisecond = 0
+let millisecondData = 0
 let millisecond2 = 0
 let t = null
 let t2 = null
 function timer () {
   millisecond += 100
+  millisecondData = millisecond
   if( millisecond >= 1000) {
     millisecond = 0
     second += 1
@@ -148,6 +152,7 @@ function change ($this, diff) {
   if(success()) {
     // 成功
     clearTimer()
+    muPost(config.addGameBill, {time: millisecondData})
     setTimeout(function(){
       $('.mask-share').show()
     },50)
@@ -332,7 +337,8 @@ function getUrlParam(name){
 }
 function getGif(){
 	muGet(config.getGif)
-	// TODO: 领取后跳转config.wxConfig.gifUrl页面
+  // TODO: 领取后跳转config.wxConfig.gifUrl页面
+  window.location.href = config.wxConfig.gifUrl
 }
 $(function () {
   $('.mask-tops').show()
@@ -341,9 +347,10 @@ $(function () {
     $('.mask-phone').show()
   }
   // 初始化initShare
-	// initWxShare(function () {
-	// 	// TODO: 分享成功后弹框领取奖品，领取奖品按钮调用getGif(data);
-  // })
+	initWxShare(function () {
+    // TODO: 分享成功后弹框领取奖品，领取奖品按钮调用getGif(data);
+    $('.mask-success').show()
+  })
   /**
    * 排行榜数据
    */
