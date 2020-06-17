@@ -286,17 +286,18 @@
 }
 .pos-phone {
   top: 30%;
+  height: auto;
 }
 .pos-phone .btn-submit {
   width: 21%;
-  height: 5%;
-  top: 19%;
+  height: 16%;
+  top: 74%;
   left: 40%;
 }
 .pos-phone .ipt-phone {
   width: 63%;
-  height: 3.5%;
-  top: 13%;
+  height: 13%;
+  top: 51%;
   left: 19%;
 }
 .pos-tops {
