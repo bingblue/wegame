@@ -1,19 +1,40 @@
-﻿var baseUrl = "http://sayming.iok.la:29850/publicApi" // http://yx.zuotingyouyuan.com/publicApi
+﻿// var baseUrl = "http://sayming.iok.la:29850/publicApi"
+var baseUrl = "http://yx.zuotingyouyuan.com/publicApi"
 var config = {
-  submitLottery: baseUrl + "/submitLottery", // 用户抽奖订单提交
-  shareLottery: baseUrl + "/shareLottery", // 用户分享成功后添加抽奖订单
-  getActivityInfo: baseUrl + "/getActivityInfo", // 获取活动信息
-  getPrizeList: baseUrl + "/getPrizeList", // 获取奖品列表
-  getWinnerList: baseUrl + "/getWinnerList", // 获取中奖名单
-  getImageCode: baseUrl + "/getImageCode", // 获取图片验证码
+  topList: baseUrl + "/topList",         // 排行榜
   getWxConfig: baseUrl + "/getWxConfig", // 获取微信分享Config
-  getWxConfig: baseUrl + "/getWxConfig", // 获取微信分享Config
-  getGif: baseUrl + "/getGif", // 领券
-  wxConfig:{},
-  countdown: 5, // 倒计时秒数
+  getGif: baseUrl + "/getGif",           // 领券
+  wxConfig:{}
 }
 
 function muGet(url, cb) {
+  cb([
+    {
+      "nickname": "1",
+      "headimgurl": "img/hand.png",
+      "time": 1,
+      "memberId": 1
+    },
+    {
+      "nickname": "2",
+      "headimgurl": "img/hand.png",
+      "time": 1,
+      "memberId": 2
+    },
+    {
+      "nickname": "3",
+      "headimgurl": "img/hand.png",
+      "time": 1,
+      "memberId": 3
+    },
+    {
+      "nickname": "4",
+      "headimgurl": "img/hand.png",
+      "time": 4,
+      "memberId": 4
+    }
+  ])
+  return
   $.ajax({
     type: "GET",
     url: url,
@@ -34,6 +55,7 @@ function muGet(url, cb) {
   })
 }
 function muPost(url, data, cb) {
+  return
   $.ajax({
     type: "POST",
     url: url,
@@ -256,7 +278,7 @@ function initWxShare(shareSuccessCallback) {
   url = "?url=" + encodeURIComponent(url)
 
   muGet(config.getWxConfig + url, function (data) {
-	config.wxConfig = data;
+	  config.wxConfig = data;
     var configData = {
       appId: data.data.appId, // 必填，公众号的唯一标识
       timestamp: data.data.timestamp, // 必填，生成签名的时间戳
@@ -309,16 +331,33 @@ function getUrlParam(name){
   if (r!=null) return unescape(r[2]); return null; //返回参数值
 }
 function getGif(){
-	muGet(config.getGif);
+	muGet(config.getGif)
 	// TODO: 领取后跳转config.wxConfig.gifUrl页面
 }
 $(function () {
+  $('.mask-tops').show()
   let type = getUrlParam('type')
   if(type == '1') {
     $('.mask-phone').show()
   }
   // 初始化initShare
-	initWxShare(function () {
-		// TODO: 分享成功后弹框领取奖品，领取奖品按钮调用getGif(data);
-	});
+	// initWxShare(function () {
+	// 	// TODO: 分享成功后弹框领取奖品，领取奖品按钮调用getGif(data);
+  // })
+  /**
+   * 排行榜数据
+   */
+  muGet(config.topList, function (data) {
+    $('.pos-tops').empty()
+    data.forEach((item, index) => {
+      let clzss = index == 0 ? 'one' : index == 1 ? 'two' : index == 2 ? 'three' : ''
+      $(`<div class="item ${clzss}">
+          <span class="num">${index + 1}</span>
+          <div class="ava"><img src="${item.headimgurl}"></div>
+          <span class="name">${item.nickname}</span>
+          <span class="min">${item.time}</span>
+        </div>`).appendTo(".pos-tops")
+
+    })
+  })
 })
