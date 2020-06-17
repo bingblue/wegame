@@ -243,7 +243,8 @@
     })
     $('.btn-submit').click(() => {
       let mobile = $('.ipt-phone').val()
-      muGet(config.create + '?mobile=' + mobile)
+      // muGet(config.create + '?mobile=' + mobile)
+      window.location.href = config.create + '?mobile=' + mobile
       $('.mask-phone').hide()
     })
     $('.btn-success').click(() => {
