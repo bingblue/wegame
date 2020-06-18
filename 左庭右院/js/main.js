@@ -1,11 +1,11 @@
-﻿// var baseUrl = "http://sayming.iok.la:29850/publicApi"
-var baseUrl = "http://yx.zuotingyouyuan.com/publicApi"
+﻿//var baseUrl = "http://sayming.iok.la:29850"
+var baseUrl = "http://yx.zuotingyouyuan.com"
 var config = {
-  topList: baseUrl + "/topList",         // 排行榜
-  addGameBill: baseUrl + "/addGameBill", // 添加成绩
-  create: baseUrl + "/create",           // 创建会员
-  getWxConfig: baseUrl + "/getWxConfig", // 获取微信分享Config
-  getGif: baseUrl + "/getGif",           // 领券
+  topList: baseUrl + "/publicApi/topList",         // 排行榜
+  addGameBill: baseUrl + "/publicApi/addGameBill", // 添加成绩
+  create: baseUrl + "/publicApi/create",           // 创建会员
+  getWxConfig: baseUrl + "/publicApi/getWxConfig", // 获取微信分享Config
+  getGif: baseUrl + "/publicApi/getGif",           // 领券
   wxConfig:{}
 }
 
@@ -43,16 +43,26 @@ function muGet(url, cb) {
     dataType: "json",
     success: function (data) {
       let dataStr = JSON.stringify(data)
-      alert(dataStr)
+//      alert(dataStr)
       if (data.code == 200) {
         cb(data)
       } else {
-        alert(data.message)
+    	  if(data.code == 40001){// 重新登录
+    		  window.location.href = baseUrl
+    	  }else if(data.code == 40002){// 注册手机号
+    		  $('.mask-phone').show()
+    		  //window.location.href = config.register
+    	  }else if(data.code == 40003){// 成绩异常
+    		  alert(data.message)
+    		  window.location.href = baseUrl
+    	  }else{
+    		  alert(data.message)
+    	  }
       }
     },
     error: function (err) {
       let dataStr = JSON.stringify(err)
-      alert(dataStr)
+//      alert(dataStr)
       alert("网络异常，请重试!")
       setTimeout(function () {
         // window.location.reload(true)
@@ -70,7 +80,7 @@ function muPost(url, data, cb) {
     contentType: "application/json charset=utf-8",
     success: function (data) {
       let dataStr = JSON.stringify(data)
-      alert(dataStr)
+//      alert(dataStr)
       if (data.code == 200) {
         cb(data)
       } else {
@@ -79,7 +89,7 @@ function muPost(url, data, cb) {
     },
     error: function (err) {
       let dataStr = JSON.stringify(err)
-      alert(dataStr)
+//      alert(dataStr)
       alert("网络异常，请重试!")
       setTimeout(function () {
         // window.location.reload(true)
@@ -97,7 +107,7 @@ let t = null
 let t2 = null
 function timer () {
   millisecond += 100
-  millisecondData = millisecond
+  millisecondData += 100
   if( millisecond >= 1000) {
     millisecond = 0
     second += 1
@@ -160,7 +170,7 @@ function change ($this, diff) {
   if(success()) {
     // 成功
     clearTimer()
-    muPost(config.addGameBill, {time: millisecondData})
+    muGet(config.addGameBill + "?time=" + millisecondData)
     setTimeout(function(){
       $('.mask-share').show()
     },50)
@@ -286,22 +296,32 @@ function setInfo (index) {
   $('.mask-info').show()
 }
 
+function checkUser(){
+	var userInfo = config.wxConfig.userInfo;
+	if(userInfo == null || userInfo == ""){// 登录
+		window.location.href = config.wxConfig.userLoginUrl
+	}else if(userInfo.mobile == null || userInfo.mobile == ""){// 注册手机
+		$('.mask-phone').show()
+		return false;
+	}
+	return true;
+}
+
 function initWxShare(shareSuccessCallback) {
   var url = window.location.href
   url = "?url=" + encodeURIComponent(url)
 
   muGet(config.getWxConfig + url, function (data) {
-	  config.wxConfig = data;
+	config.wxConfig = data.data;
+	checkUser();
     var configData = {
       appId: data.data.appId, // 必填，公众号的唯一标识
       timestamp: data.data.timestamp, // 必填，生成签名的时间戳
       nonceStr: data.data.nonceStr, // 必填，生成签名的随机串
       signature: data.data.signature, // 必填，签名
       jsApiList: [
-        "updateAppMessageShareData",
-        "updateTimeLineShareData",
-        "onMenuShareTimeline",
         "onMenuShareAppMessage",
+        "onMenuShareTimeline"
       ], // 必填，需要使用的JS接口列表
     }
     wx.config(configData)
@@ -315,23 +335,13 @@ function initWxShare(shareSuccessCallback) {
       }
       try {
         // 分享给朋友
-        wx.updateAppMessageShareData(shareData)
+        wx.onMenuShareAppMessage(shareData)
       } catch (err) {
         console.log(err)
       }
       try {
         // 分享到朋友圈
-        wx.updateTimeLineShareData(shareData)
-      } catch (err) {
-        console.log(err)
-      }
-      try {
         wx.onMenuShareTimeline(shareData)
-      } catch (err) {
-        console.log(err)
-      }
-      try {
-        wx.onMenuShareAppMessage(shareData)
       } catch (err) {
         console.log(err)
       }
@@ -344,7 +354,7 @@ function getUrlParam(name){
   if (r!=null) return unescape(r[2]); return null; //返回参数值
 }
 function getGif(){
-	muGet(config.getGif)
+  muGet(config.getGif)
   // TODO: 领取后跳转config.wxConfig.gifUrl页面
   window.location.href = config.wxConfig.gifUrl
 }
@@ -355,7 +365,7 @@ $(function () {
     $('.mask-phone').show()
   }
   // 初始化initShare
-	initWxShare(function () {
+  initWxShare(function () {
     // TODO: 分享成功后弹框领取奖品，领取奖品按钮调用getGif(data);
     $('.mask-success').show()
   })
@@ -364,7 +374,7 @@ $(function () {
    */
   muGet(config.topList, function (data) {
     $('.pos-tops').empty()
-    data.forEach((item, index) => {
+    data.data.forEach((item, index) => {
       let clzss = index == 0 ? 'one' : index == 1 ? 'two' : index == 2 ? 'three' : ''
       $(`<div class="item ${clzss}">
           <span class="num">${index + 1}</span>
