@@ -109,55 +109,55 @@
 .btn-1 {
   width: 21%;
   height: 13%;
-  top: 34%;
+  top: 41%;
   left: 2%;
 }
 .btn-2 {
   width: 21%;
   height: 5%;
-  top: 36%;
+  top: 43%;
   left: 27%;
 }
 .btn-3 {
   width: 21%;
   height: 5%;
-  top: 37%;
+  top: 44%;
   left: 49%;
 }
 .btn-4 {
   width: 21%;
   height: 12%;
-  top: 36%;
+  top: 42%;
   left: 75%;
 }
 .btn-5 {
   width: 15%;
   height: 5%;
-  top: 41%;
+  top: 47%;
   left: 25%;
 }
 .btn-6 {
   width: 12%;
   height: 7%;
-  top: 49%;
+  top: 54%;
   left: 20%;
 }
 .btn-7 {
   width: 15%;
   height: 8%;
-  top: 45%;
+  top: 51%;
   left: 31%;
 }
 .btn-8 {
   width: 27%;
   height: 10%;
-  top: 42%;
+  top: 48%;
   left: 48%;
 }
 .btn-9 {
   width: 21%;
   height: 11%;
-  top: 48%;
+  top: 53%;
   left: 76%;
 }
 .btn-10 {
@@ -179,10 +179,10 @@
   left: 32%;
 }
 .nums {
-  width: 59%;
+  width: 62%;
   height: 7%;
-  top: 23%;
-  left: 21%;
+  top: 27%;
+  left: 19%;
 }
 .nums span{
   display: inline-block;
@@ -201,18 +201,18 @@
   width: 11%;
 }
 .nums .num7 {
-  width: 11%;
+  width: 10%;
 }
 .games {
   width: 92%;
-  height: 52%;
-  top: 34.8%;
-  left: 7.2%;
+  height: 42%;
+  top: 37%;
+  left: 6%;
   overflow: hidden;
 }
 .games img {
   width: 31%;
-  margin: 1px 0px;
+  margin: 2px 2px;
 }
 .btn-success {
   width: 36%;
@@ -384,6 +384,7 @@
   display: inline-block;
   padding-left: 2%;
   width: 28%;
+  height: 60px;
   overflow: hidden;
 }
 .pos-tops .item .min {

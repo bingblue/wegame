@@ -10,32 +10,6 @@ var config = {
 }
 
 function muGet(url, cb) {
-  // cb([
-  //   {
-  //     "nickname": "1",
-  //     "headimgurl": "img/hand.png",
-  //     "time": 1,
-  //     "memberId": 1
-  //   },
-  //   {
-  //     "nickname": "2",
-  //     "headimgurl": "img/hand.png",
-  //     "time": 1,
-  //     "memberId": 2
-  //   },
-  //   {
-  //     "nickname": "3",
-  //     "headimgurl": "img/hand.png",
-  //     "time": 1,
-  //     "memberId": 3
-  //   },
-  //   {
-  //     "nickname": "4",
-  //     "headimgurl": "img/hand.png",
-  //     "time": 4,
-  //     "memberId": 4
-  //   }
-  // ])
   // return
   $.ajax({
     type: "GET",
@@ -131,8 +105,6 @@ function timer () {
   $(".num3").text(num3)
   $(".num4").text(num4)
   $(".num5").text(num5)
-  // $(".num6").text(num6)
-  // $(".num7").text(num7)
 }
 function timer2 () {
   millisecond2 += 1
