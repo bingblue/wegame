@@ -10,7 +10,7 @@ var config = {
 }
 
 function muGet(url, cb) {
-  return
+  // return
   $.ajax({
     type: "GET",
     url: url,
@@ -45,7 +45,7 @@ function muGet(url, cb) {
   })
 }
 function muPost(url, data, cb) {
-  return
+  // return
   $.ajax({
     type: "POST",
     url: url,
