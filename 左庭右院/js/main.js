@@ -134,8 +134,15 @@ function change ($this, diff) {
   let imgs = $('.games img')
   let index = imgs.index($this)
   let changeIndex = index + diff
-  if (changeIndex < 0 || changeIndex >= imgs.length) return false
+  console.log("change -> changeIndex", changeIndex)
+  if (changeIndex < 0 || changeIndex >= imgs.length) {
+    setTimeout(function(){
+      touchFlag = true
+    }, 100)
+    return false
+  }
   let temp = imgs[index]
+  console.log("change -> temp", temp)
   imgs[index] = imgs[changeIndex]
   imgs[changeIndex] = temp
   $(".games").html(imgs)
@@ -150,7 +157,7 @@ function change ($this, diff) {
     touch()
     setTimeout(function(){
       touchFlag = true
-    }, 500)
+    }, 100)
   }
 }
 
@@ -196,6 +203,7 @@ function touch () {
       }else{
         // 下滑滑动
         console.log('下滑滑动')
+        console.log("touch -> this", this)
         change(this.$this[0], 3)
       }
     }
@@ -356,5 +364,13 @@ $(function () {
         </div>`).appendTo(".pos-tops")
 
     })
+  })
+  $('.btn-source').click(function() {
+    $('.mask-source').show()
+    clearTimer()
+  })
+  $('.mask-source').click(function() {
+    $('.mask-source').hide()
+    startTimer()
   })
 })
