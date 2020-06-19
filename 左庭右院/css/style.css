@@ -85,20 +85,20 @@
 .btn-colse {
   width: 9%;
   height: 5%;
-  top: 18%;
-  left: 75%;
+  top: 16%;
+  left: 80%;
 }
 .btn-tops {
-  width: 37%;
+  width: 43%;
   height: 7%;
-  top: 86%;
+  top: 79%;
   left: 50%;
 }
 .btn-rules {
-  width: 37%;
+  width: 41%;
   height: 7%;
-  top: 86%;
-  left: 12%;
+  top: 79%;
+  left: 8%;
 }
 .btn-know {
   width: 36%;
@@ -315,10 +315,10 @@
   left: 19%;
 }
 .pos-tops {
-  width: 70%;
+  width: 78%;
   height: 58%;
-  top: 26%;
-  left: 15%;
+  top: 20.5%;
+  left: 11%;
   overflow: auto;
 }
 .pos-tops .item {
