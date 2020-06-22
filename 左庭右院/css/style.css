@@ -415,6 +415,9 @@ body {
   overflow: hidden;
   float: left;
 }
+.mojs {
+  z-index: 9999;
+}
 
 .ani {
   -webkit-transform-origin: 50% 50%;

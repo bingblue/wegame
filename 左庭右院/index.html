@@ -23,6 +23,7 @@
 </head>
 
 <body>
+  <script src="js/mo.min.js"></script>
   <div class="wrap">
     <a href="javascript:;" class="pos btn-rule"></a>
     <div class="main">
@@ -214,6 +215,8 @@
       }, () => {
         $('.mask-know').animate({
           top: 0
+        }, () => {
+          startAni()
         })
       })
     })

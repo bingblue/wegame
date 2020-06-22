@@ -338,6 +338,39 @@ function getGif(){
   // TODO: 领取后跳转config.wxConfig.gifUrl页面
   window.location.href = config.wxConfig.gifUrl
 }
+let aniT = null
+function startAni() {
+  var OPTS = {
+    fill: 'none',
+    radius: 25,
+    className: 'mojs',
+    strokeWidth: { 50: 0 },
+    scale: { 0: 1 },
+    angle: { 'rand(-35, -70)': 0 },
+    duration: 500,
+    left: '0%',
+    top: '0%',
+    easing: 'cubic.out'
+  }
+  
+  var circle1 = new mojs.Shape($.extend(OPTS, {
+    stroke: '#FF8966'
+  }))
+  
+  var circle2 = new mojs.Shape($.extend(OPTS, {
+    radius: { 0: 15 },
+    strokeWidth: { 30: 0 },
+    stroke: '#E5446D',
+    delay: 'rand(75, 150)'
+  }))
+  aniT = setInterval(function(){
+    circle1.tune({ x: 55, y: 290 }).replay()
+    circle2.tune({ x: 55, y: 290 }).replay()
+  }, 1000)
+}
+function stopAni() {
+  clearInterval(aniT)
+}
 $(function () {
   // $('.mask-tops').show()
   let type = getUrlParam('type')
