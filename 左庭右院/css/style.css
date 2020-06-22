@@ -177,6 +177,14 @@ body {
   top: 43%;
   left: 45%;
 }
+.know-hand {
+  width: 17.3%;
+  height: auto;
+  top: 36%;
+  left: 12%;
+  transform: rotate(58deg);
+  z-index: 99;
+}
 .btn-tips {
   width: 36%;
   height: 6%;
@@ -416,7 +424,7 @@ body {
   float: left;
 }
 .mojs {
-  z-index: 9999;
+  z-index: 88;
 }
 
 .ani {

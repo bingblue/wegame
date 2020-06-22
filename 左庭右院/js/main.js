@@ -340,7 +340,9 @@ function getGif(){
 }
 let aniT = null
 function startAni() {
+  $('.mojs').show()
   var OPTS = {
+    parent: '.jq-know',
     fill: 'none',
     radius: 25,
     className: 'mojs',
@@ -348,8 +350,8 @@ function startAni() {
     scale: { 0: 1 },
     angle: { 'rand(-35, -70)': 0 },
     duration: 500,
-    left: '0%',
-    top: '0%',
+    left: '15%',
+    top: '37%',
     easing: 'cubic.out'
   }
   
@@ -364,12 +366,13 @@ function startAni() {
     delay: 'rand(75, 150)'
   }))
   aniT = setInterval(function(){
-    circle1.tune({ x: 55, y: 290 }).replay()
-    circle2.tune({ x: 55, y: 290 }).replay()
+    circle1.tune({ x: 0, y: 0 }).replay()
+    circle2.tune({ x: 0, y: 0 }).replay()
   }, 1000)
 }
 function stopAni() {
   clearInterval(aniT)
+  $('.mojs').hide()
 }
 $(function () {
   // $('.mask-tops').show()
