@@ -75,7 +75,7 @@
           <img data-order="9" src="img/game/game9.jpg">
         </div>
       </div>
-      <a href="javascript:;" class="pos btn-source">查看原图</a>
+      <a href="javascript:;" class="pos btn-source"></a>
       <div class="pos jq-tips">
         <img src="img/tips.png" class="pos" />
         <img src="img/hand.png" class="pos ani img-hand" />
@@ -93,19 +93,19 @@
         <div class="item one">
           <span class="num">1</span>
           <div class="ava"><img src="img/hand.png"></div>
-          <span class="name">微信名</span>
-          <span class="min">00:00:000</span>
+          <span class="name">小胡小小</span>
+          <span class="min">00:06:100</span>
         </div>
         <div class="item two">
           <span class="num">2</span>
           <div class="ava"><img src="img/hand.png"></div>
-          <span class="name">微信名</span>
+          <span class="name">123微信名1231231</span>
           <span class="min">00:00:000</span>
         </div>
         <div class="item three">
           <span class="num">3</span>
           <div class="ava"><img src="img/hand.png"></div>
-          <span class="name">微信名</span>
+          <span class="name">12微信名</span>
           <span class="min">00:00:000</span>
         </div>
         <div class="item">
@@ -205,7 +205,7 @@
       $('.mask-info').hide()
     })
     $('.btn-start').click(() => {
-    	if(!checkUser()) return;
+    	// if(!checkUser()) return;
       $('.mask-know').show().css({
         top: -1000
       })
@@ -265,6 +265,11 @@
     })
     $('.btn-submit').click(() => {
       let mobile = $('.ipt-phone').val()
+      const reg = /^(?:(?:\+|00)86)?1[3-9]\d{9}$/g
+      if (!reg.test(mobile)) {
+        alert('手机号格式不正确！')
+        return false
+      }
       // muGet(config.create + '?mobile=' + mobile)
       window.location.href = config.create + '?mobile=' + mobile
       $('.mask-phone').hide()

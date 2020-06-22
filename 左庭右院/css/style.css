@@ -77,117 +77,117 @@ body {
 .btn-rule {
   width: 12%;
   height: 6%;
-  top: 6%;
-  left: 84%;
+  top: 4%;
+  left: 83%;
   z-index: 9999;
 }
 .btn-start {
   width: 36%;
   height: 6%;
-  top: 80%;
+  top: 68%;
   left: 32%;
 }
 .btn-colse {
   width: 9%;
   height: 5%;
-  top: 16%;
-  left: 80%;
+  top: 9%;
+  left: 76%;
 }
 .btn-tops {
-  width: 43%;
+  width: 39%;
   height: 7%;
-  top: 79%;
-  left: 50%;
+  top: 69%;
+  left: 49%;
 }
 .btn-rules {
   width: 41%;
   height: 7%;
-  top: 79%;
+  top: 69%;
   left: 8%;
 }
 .btn-know {
   width: 36%;
   height: 6%;
-  top: 81%;
-  left: 34%;
+  top: 68%;
+  left: 31%;
 }
 .btn-1 {
   width: 21%;
   height: 13%;
-  top: 41%;
+  top: 31%;
   left: 2%;
 }
 .btn-2 {
   width: 21%;
   height: 5%;
-  top: 43%;
+  top: 33%;
   left: 27%;
 }
 .btn-3 {
   width: 21%;
   height: 5%;
-  top: 44%;
+  top: 34%;
   left: 49%;
 }
 .btn-4 {
   width: 21%;
   height: 12%;
-  top: 42%;
+  top: 32%;
   left: 75%;
 }
 .btn-5 {
   width: 15%;
   height: 5%;
-  top: 47%;
+  top: 38%;
   left: 25%;
 }
 .btn-6 {
   width: 12%;
   height: 7%;
-  top: 54%;
+  top: 44%;
   left: 20%;
 }
 .btn-7 {
   width: 15%;
   height: 8%;
-  top: 51%;
+  top: 41%;
   left: 31%;
 }
 .btn-8 {
   width: 27%;
   height: 10%;
-  top: 48%;
+  top: 38%;
   left: 48%;
 }
 .btn-9 {
   width: 21%;
   height: 11%;
-  top: 53%;
+  top: 43%;
   left: 76%;
 }
 .btn-10 {
   width: 36%;
   height: 6%;
-  top: 81%;
-  left: 33%;
+  top: 68%;
+  left: 31%;
 }
 .img-hand {
   width: 17.3%;
   height: auto;
-  top: 49%;
+  top: 43%;
   left: 45%;
 }
 .btn-tips {
   width: 36%;
   height: 6%;
-  top: 72%;
+  top: 68%;
   left: 32%;
 }
 .nums {
-  width: 62%;
+  width: 60%;
   height: 7%;
-  top: 27%;
-  left: 19%;
+  top: 19%;
+  left: 20%;
 }
 .nums span{
   display: inline-block;
@@ -211,8 +211,8 @@ body {
 .games {
   width: 92%;
   height: 42%;
-  top: 37%;
-  left: 6%;
+  top: 29%;
+  left: 6.5%;
   overflow: hidden;
 }
 .games img {
@@ -220,9 +220,9 @@ body {
   margin: 2px 2px;
 }
 .btn-source {
-  top: 80%;
-  left: 79%;
-  width: 20%;
+  top: 73%;
+  left: 36%;
+  width: 28%;
   height: 3%;
   font-size: 16px;
   color: #dddfda;
@@ -236,8 +236,8 @@ body {
 .btn-success {
   width: 36%;
   height: 6%;
-  top: 54%;
-  left: 33%;
+  top: 48%;
+  left: 32%;
 }
 
 .p-rule {
@@ -255,7 +255,7 @@ body {
 .pos-info {
   width: 59%;
   height: 34%;
-  top: 35%;
+  top: 31%;
   left: 20%;
   font-size: 20px;
   text-align: center;
@@ -279,10 +279,10 @@ body {
   margin-top: -5%;
 }
 .btn-info-close {
-  width: 11%;
+  width: 13%;
   height: 10%;
-  top: 7%;
-  left: 82%;
+  top: -3%;
+  left: 87%;
 }
 
 .mask,
@@ -320,10 +320,10 @@ body {
   left: 19%;
 }
 .pos-tops {
-  width: 78%;
-  height: 58%;
-  top: 20.5%;
-  left: 11%;
+  width: 75%;
+  height: 53%;
+  top: 16%;
+  left: 13%;
   overflow: auto;
 }
 .pos-tops .item {
@@ -359,6 +359,7 @@ body {
   width: 20%;
   height: 60px;
   overflow: hidden;
+  float: left;
 }
 .pos-tops .item.one .ava {
   background: url('../img/icon_1.png') no-repeat center;
@@ -404,12 +405,15 @@ body {
   padding-left: 2%;
   width: 28%;
   height: 60px;
+  line-height: 60px;
   overflow: hidden;
+  float: left;
 }
 .pos-tops .item .min {
   display: inline-block;
   width: 32%;
   overflow: hidden;
+  float: left;
 }
 
 .ani {
