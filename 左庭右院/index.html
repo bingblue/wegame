@@ -206,7 +206,7 @@
       $('.mask-info').hide()
     })
     $('.btn-start').click(() => {
-    	// if(!checkUser()) return;
+    	if(!checkUser()) return;
       $('.mask-know').show().css({
         top: -1000
       })
@@ -222,6 +222,7 @@
     })
     $('.btn-know').click(() => {
       $('.jq-know').hide()
+      stopAni()
     })
     $('.jq-part a').click(function() {
       const key = $(this).data('id')
