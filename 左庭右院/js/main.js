@@ -365,6 +365,8 @@ function startAni() {
     stroke: '#E5446D',
     delay: 'rand(75, 150)'
   }))
+  circle1.tune({ x: 0, y: 0 }).replay()
+  circle2.tune({ x: 0, y: 0 }).replay()
   aniT = setInterval(function(){
     circle1.tune({ x: 0, y: 0 }).replay()
     circle2.tune({ x: 0, y: 0 }).replay()
