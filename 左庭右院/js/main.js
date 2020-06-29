@@ -37,7 +37,6 @@ function muGet(url, cb) {
     error: function (err) {
       let dataStr = JSON.stringify(err)
 //      alert(dataStr)
-      alert("网络异常，请重试!")
       setTimeout(function () {
         // window.location.reload(true)
       }, 1000)
@@ -64,7 +63,6 @@ function muPost(url, data, cb) {
     error: function (err) {
       let dataStr = JSON.stringify(err)
 //      alert(dataStr)
-      alert("网络异常，请重试!")
       setTimeout(function () {
         // window.location.reload(true)
       }, 1000)
