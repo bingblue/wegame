@@ -263,7 +263,7 @@ let infoArray = [{
 },{
   name: '腱子肉：',
   img: 'img/part/part9.png',
-  desc: '牛腱子肉，口感介于脆嫩之间。'
+  desc: '牛后腿肉，口感介于脆嫩之间。'
 }]
 /**
  * 设置 info 页面内容
