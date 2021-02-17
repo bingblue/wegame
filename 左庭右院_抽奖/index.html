@@ -24,19 +24,59 @@
 
 <body>
   <div class="wrap">
-    <a href="javascript:;" class="pos btn-rule"></a>
-    <div class="main">
+    <div class="main page1">
       <img src="img/bg.jpg" />
       <div class="pos jq-start">
         <img src="img/bg_guo.png" class="pos" />
         <a href="javascript:;" class="pos btn-start"></a>
       </div>
     </div>
+
+    <div class="pos-main page2">
+      <img src="img/bg_2_1.jpg" />
+      <a href="javascript:;" class="pos btn-btn1"></a>
+      <a href="javascript:;" class="pos btn-btn2"></a>
+      <div class="pos jq-game">
+        <div class="pos games">
+          <img data-order="1" src="img/game/game_1.jpg">
+          <img data-order="2" src="img/game/game_2.jpg">
+          <img data-order="3" src="img/game/game_3.jpg">
+          <img data-order="4" src="img/game/game_4.jpg">
+          <img data-order="5" src="img/game/game_5.jpg">
+          <img data-order="6" src="img/game/game_6.jpg">
+        </div>
+        <a href="javascript:;" class="pos btn-game"></a>
+        <a href="javascript:;" class="pos btn-source">你有1次抽奖机会</a>
+        <a href="javascript:;" class="pos btn-btn3"></a>
+        <a href="javascript:;" class="pos btn-btn4"></a>
+      </div>
+    </div>
+
+    <div class="pos-main page3">
+      <img src="img/bg_2_1.jpg" />
+      <div class="pos jq-start">
+        <img src="img/bg_guo.png" class="pos" />
+        <a href="javascript:;" class="pos btn-start"></a>
+      </div>
+    </div>
+
+    <div class="pos-main pos-phone mask-phone">
+      <img src="img/mask_phone.png">
+      <input type="number" class="pos ipt-phone" placeholder="请务必填写真实手机号">
+      <a href="javascript:;" class="pos btn-submit"></a>
+    </div>
   </div>
 </body>
 <script>
   $(function () {
-    
+    $('.btn-start').click(()=> {
+      $('.page1').hide()
+      $('.page2, .mask-phone').show()
+    })
+
+    $('.btn-submit').click(()=> {
+      $('.mask-phone').hide()
+    })
   })
 </script>
 

@@ -217,23 +217,30 @@ body {
   width: 10%;
 }
 .games {
-  width: 92%;
+  width: 91%;
   height: 42%;
-  top: 29%;
-  left: 6.5%;
+  top: 28.5%;
+  left: 8%;
   overflow: hidden;
 }
 .games img {
-  width: 31%;
-  margin: 2px 2px;
+  width: 28%;
+  margin: 10px 4px;
+}
+.btn-game {
+  top: 75%;
+  left: 21%;
+  width: 58%;
+  height: 10%;
 }
 .btn-source {
-  top: 73%;
-  left: 36%;
-  width: 28%;
+  top: 91%;
+  left: 33%;
+  width: 34%;
   height: 3%;
-  font-size: 16px;
+  font-size: 14px;
   color: #dddfda;
+  text-align: center;
 }
 .pos-source {
   width: 100%;
@@ -312,20 +319,45 @@ body {
   height: auto;
 }
 .pos-phone {
-  top: 30%;
-  height: auto;
+  /* top: 30%;
+  height: auto; */
 }
 .pos-phone .btn-submit {
-  width: 21%;
-  height: 16%;
-  top: 76%;
-  left: 40%;
+  width: 34%;
+  height: 5%;
+  top: 55%;
+  left: 33%;
+}
+.btn-btn1 {
+  width: 11%;
+  height: 5%;
+  top: 3%;
+  left: 72%;
+}
+.btn-btn2 {
+  width: 11%;
+  height: 5%;
+  top: 3%;
+  left: 86%;
+}
+.btn-btn3 {
+  width: 41%;
+  height: 2.5%;
+  top: 94%;
+  left: 31%;
+}
+.btn-btn4 {
+  width: 11%;
+  height: 5%;
+  top: 92%;
+  left: 86%;
 }
 .pos-phone .ipt-phone {
-  width: 63%;
-  height: 13%;
-  top: 54%;
-  left: 19%;
+  width: 44%;
+  height: 5%;
+  top: 47%;
+  left: 28%;
+  text-align: center;
 }
 .pos-tops {
   width: 75%;
