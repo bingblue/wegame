@@ -35,9 +35,9 @@
     <!-- 游戏页面 -->
     <div class="pos-main page2">
       <img src="img/bg_2_1.jpg" />
-      <a href="javascript:;" class="pos btn-btn1"></a>
-      <a href="javascript:;" class="pos btn-btn2"></a>
       <div class="pos jq-game">
+        <a href="javascript:;" class="pos btn-btn1"></a>
+        <a href="javascript:;" class="pos btn-btn2"></a>
         <div class="pos games">
           <img data-order="1" src="img/game/game_1.jpg">
           <img data-order="2" src="img/game/game_2.jpg">
@@ -56,34 +56,155 @@
     <div class="pos-main page3">
       <img src="img/rule.jpg" />
       <div class="pos">
-        <a href="javascript:;" class="pos btn-close"></a>
+        <a href="javascript:;" class="pos btn-rule-close"></a>
+        <a href="javascript:;" class="pos btn-rule-my"></a>
       </div>
     </div>
     <!-- 我的页面 -->
     <div class="pos-main page4">
-      <img src="img/bg_2_1.jpg" />
-      <div class="pos jq-start">
-        <img src="img/bg_guo.png" class="pos" />
-        <a href="javascript:;" class="pos btn-start"></a>
+      <img src="img/my.jpg" />
+      <div class="pos">
+        <a href="javascript:;" class="pos btn-my-close"></a>
+        <a href="javascript:;" class="pos btn-my-rule"></a>
       </div>
     </div>
 
+    <!-- 兑换页面 -->
+    <div class="pos-main page5">
+      <img src="img/change2.png" />
+      <div class="pos">
+        <a href="javascript:;" class="pos btn-exchange-close"></a>
+        <a href="javascript:;" class="pos btn-add"></a>
+        <a href="javascript:;" class="pos btn-less"></a>
+        <a href="javascript:;" class="pos txt-exchange">0</a>
+        <a href="javascript:;" class="pos btn-exchange"></a>
+      </div>
+    </div>
+
+    <!-- 中奖弹窗蒙层 -->
+    <div class="pos-main mask-award">
+      <img src="img/award.png">
+      <a href="javascript:;" class="pos btn-award-close"></a>
+      <a href="javascript:;" class="pos btn-award-my"></a>
+    </div>
+
+    <!-- 未中奖弹窗蒙层 -->
+    <div class="pos-main mask-fail">
+      <img src="img/fail.png">
+      <a href="javascript:;" class="pos btn-fail-close"></a>
+      <a href="javascript:;" class="pos btn-fail"></a>
+    </div>
+
+    <!-- 填写手机号蒙层 -->
     <div class="pos-main pos-phone mask-phone">
       <img src="img/mask_phone.png">
       <input type="number" class="pos ipt-phone" placeholder="请务必填写真实手机号">
       <a href="javascript:;" class="pos btn-submit"></a>
     </div>
+
+    <!-- 兑换成功蒙层 -->
+    <div class="pos-main pos-change mask-change">
+      <img src="img/success.png">
+      <a href="javascript:;" class="pos btn-success-close"></a>
+    </div>
   </div>
 </body>
 <script>
   $(function () {
+    /** 点击抽奖牌 */
+    $('.games img').click(()=> {
+      $('.mask-fail').show()
+    })
+
+    /** 点击开始抽奖按钮 */
     $('.btn-start').click(()=> {
       $('.page1').hide()
       $('.page2, .mask-phone').show()
     })
 
+    /** 点击提交手机号按钮 */
     $('.btn-submit').click(()=> {
       $('.mask-phone').hide()
+    })
+
+    /** 点击规则按钮 */
+    $('.btn-btn2').click(()=> {
+      $('.page2').hide()
+      $('.page3').show()
+    })
+
+    /** 点击规则页面的我的奖品按钮 */
+    $('.btn-rule-my').click(()=> {
+      $('.page3').hide()
+      $('.page4').show()
+    })
+
+    /** 点击我的页面的抽奖规则按钮 */
+    $('.btn-my-rule').click(()=> {
+      $('.page4').hide()
+      $('.page3').show()
+    })
+
+    /** 点击我的奖品按钮 */
+    $('.btn-btn4').click(()=> {
+      $('.page2').hide()
+      $('.page4').show()
+    })
+
+    /** 点击去兑换页面 */
+    $('.btn-btn3').click(()=> {
+      $('.page2').hide()
+      $('.page5').show()
+    })
+
+    /** 点击兑换按钮 */
+    $('.btn-exchange').click(()=> {
+      $('.pos-change').show()
+    })
+
+    /** 点击规则页面关闭按钮 */
+    $('.btn-rule-close').click(()=> {
+      $('.page2').show()
+      $('.page3').hide()
+    })
+
+    /** 点击我的页面关闭按钮 */
+    $('.btn-my-close').click(()=> {
+      $('.page2').show()
+      $('.page4').hide()
+    })
+
+    /** 点击兑换成功关闭按钮 */
+    $('.btn-success-close').click(()=> {
+      $('.pos-change').hide()
+    })
+
+    /** 点击兑换页面关闭按钮 */
+    $('.btn-exchange-close').click(()=> {
+      $('.page5').hide()
+      $('.page2').show()
+    })
+
+    /** 点击获奖页面关闭按钮 */
+    $('.btn-award-close').click(()=> {
+      $('.mask-award').hide()
+    })
+
+    /** 点击获奖页面查看我的奖品 */
+    $('.btn-award-my').click(()=> {
+      $('.mask-award').hide()
+      $('.page2').hide()
+      $('.page4').show()
+    })
+
+    /** 点击未获奖页面关闭按钮 */
+    $('.btn-fail-close').click(()=> {
+      $('.mask-fail').hide()
+    })
+
+    /** 点击未获奖页面再抽一次按钮 */
+    $('.btn-fail').click(()=> {
+      $('.mask-fail').hide()
     })
   })
 </script>

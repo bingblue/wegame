@@ -322,11 +322,59 @@ body {
   /* top: 30%;
   height: auto; */
 }
+.btn-fail-close {
+  width: 9%;
+  height: 6%;
+  top: 15%;
+  left: 77%;
+}
+.btn-fail {
+  width: 33%;
+  height: 5%;
+  top: 65%;
+  left: 34%;
+}
+.btn-award-close {
+  width: 9%;
+  height: 6%;
+  top: 15%;
+  left: 77%;
+}
+.btn-award-my {
+  width: 33%;
+  height: 5%;
+  top: 65%;
+  left: 34%;
+}
 .pos-phone .btn-submit {
   width: 34%;
   height: 5%;
   top: 55%;
   left: 33%;
+}
+.btn-rule-my {
+  width: 33%;
+  height: 8%;
+  top: 12%;
+  left: 55%;
+}
+.btn-rule-close {
+  width: 8%;
+  height: 5%;
+  top: 3%;
+  left: 88%;
+}
+.btn-my-rule {
+  width: 33%;
+  height: 8%;
+  top: 12%;
+  left: 12%;
+}
+.btn-my-close {
+  width: 8%;
+  height: 5%;
+  top: 3%;
+  left: 88%;
 }
 .btn-btn1 {
   width: 11%;
@@ -351,6 +399,45 @@ body {
   height: 5%;
   top: 92%;
   left: 86%;
+}
+.btn-add {
+  width: 11%;
+  height: 5%;
+  top: 41%;
+  left: 61%;
+}
+.btn-less {
+  width: 11%;
+  height: 5%;
+  top: 41%;
+  left: 78%;
+}
+.btn-exchange {
+  width: 34%;
+  height: 8%;
+  top: 77%;
+  left: 33%;
+}
+.btn-exchange-close {
+  width: 8%;
+  height: 5%;
+  top: 3%;
+  left: 88%;
+}
+.btn-success-close {
+  width: 8%;
+  height: 5%;
+  top: 28%;
+  left: 78%;
+}
+.txt-exchange {
+  width: 8%;
+  height: 4%;
+  top: 42%;
+  left: 71%;
+  color: #fff;
+  text-align: center;
+  line-height: 2;
 }
 .pos-phone .ipt-phone {
   width: 44%;
