@@ -47,7 +47,7 @@
           <img data-order="6" src="img/game/game_6.jpg">
         </div>
         <a href="javascript:;" class="pos btn-game"></a>
-        <a href="javascript:;" class="pos btn-source">你有1次抽奖机会</a>
+        <a href="javascript:;" class="pos btn-source">你有<span>1</span>次抽奖机会</a>
         <a href="javascript:;" class="pos btn-btn3"></a>
         <a href="javascript:;" class="pos btn-btn4"></a>
       </div>
@@ -64,6 +64,11 @@
     <div class="pos-main page4">
       <img src="img/my.jpg" />
       <div class="pos">
+        <ul class="pos my-prize">
+          <!-- <li><a href="#">
+            牛年金片10g
+          </a></li> -->
+        </ul>
         <a href="javascript:;" class="pos btn-my-close"></a>
         <a href="javascript:;" class="pos btn-my-rule"></a>
       </div>
@@ -84,6 +89,10 @@
     <!-- 中奖弹窗蒙层 -->
     <div class="pos-main mask-award">
       <img src="img/award.png">
+      <div class="pos mask-award-prize">
+        <img src="img/part/prize_1.png">
+      </div>
+      <span class="pos mask-award-txt">糖水（任选一款）</span>
       <a href="javascript:;" class="pos btn-award-close"></a>
       <a href="javascript:;" class="pos btn-award-my"></a>
     </div>
@@ -98,7 +107,7 @@
     <!-- 填写手机号蒙层 -->
     <div class="pos-main pos-phone mask-phone">
       <img src="img/mask_phone.png">
-      <input type="number" class="pos ipt-phone" placeholder="请务必填写真实手机号">
+      <input type="number" id="phone" class="pos ipt-phone" placeholder="请务必填写真实手机号">
       <a href="javascript:;" class="pos btn-submit"></a>
     </div>
 
@@ -107,24 +116,93 @@
       <img src="img/success.png">
       <a href="javascript:;" class="pos btn-success-close"></a>
     </div>
+
+    <!-- 预加载图片 -->
+    <div class="mask">
+      <img src="img/part/prize_1.png">
+      <img src="img/part/prize_2.png">
+      <img src="img/part/prize_3.png">
+      <img src="img/part/prize_4.png">
+      <img src="img/part/prize_5.png">
+      <img src="img/part/prize_6.png">
+      <img src="img/part/prize_7.png">
+    </div>
   </div>
 </body>
 <script>
   $(function () {
+    getInfo()
+    let gameStar = false
+    let changeNum = 0
     /** 点击抽奖牌 */
     $('.games img').click(()=> {
-      $('.mask-fail').show()
+      if(!gameStar) {
+        alert('请先点击开始抽奖按钮')
+        return false
+      }
+      $('.mask-award').show()
+      muGet(config.lottery, res => {
+        if(res) {
+          $('.mask-award').show()
+        }else {
+          $('.mask-fail').show()
+        }
+        gameStar = false
+      })
     })
 
-    /** 点击开始抽奖按钮 */
+    /** 点击抽奖券兑换增加按钮 */
+    $('.btn-add').click(()=> {
+      changeNum += 1
+      if(changeNum >= 5) changeNum = 5
+      $('.txt-exchange').text(changeNum)
+    })
+
+    /** 点击抽奖券兑换减少按钮 */
+    $('.btn-less').click(()=> {
+      changeNum -= 1
+      if(changeNum <= 0) changeNum = 0
+      $('.txt-exchange').text(changeNum)
+    })
+
+    /** 点击兑换按钮 */
+    $('.btn-exchange').click(()=> {
+      muGet(`${config.change}?quantity=${changeNum}`, res => {
+        $('.pos-change').show()
+        getInfo()
+      })
+    })
+
+    /** 点击首页开始抽奖按钮 */
     $('.btn-start').click(()=> {
       $('.page1').hide()
       $('.page2, .mask-phone').show()
     })
 
+    /** 点击游戏页开始抽奖按钮 */
+    $('.btn-game').click(()=> {
+      let times = $('.btn-source span').text() * 1
+      if(times > 0) {
+        gameStar = true
+        /** 抽奖次数减1 */
+        $('.btn-source span').text(times - 1)
+      }else {
+        alert('抽奖次数已用完')
+      }
+    })
+
     /** 点击提交手机号按钮 */
     $('.btn-submit').click(()=> {
-      $('.mask-phone').hide()
+      // let phone = $('#phone').val()
+      // const reg = /^(?:(?:\+|00)86)?1[3-9]\d{9}$/g
+      // if (!reg.test(phone)) {
+      //   alert('手机号格式不正确')
+      //   return false
+      // }
+      // /** 更新手机号 */
+      // muGet(config.updateMobile, res => {
+        $('.mask-phone').hide()
+      // })
     })
 
     /** 点击规则按钮 */
@@ -135,6 +213,8 @@
 
     /** 点击规则页面的我的奖品按钮 */
     $('.btn-rule-my').click(()=> {
+      /** 请求我的奖品 */
+      prizeList()
       $('.page3').hide()
       $('.page4').show()
     })
@@ -147,6 +227,8 @@
 
     /** 点击我的奖品按钮 */
     $('.btn-btn4').click(()=> {
+      /** 请求我的奖品 */
+      prizeList()
       $('.page2').hide()
       $('.page4').show()
     })
@@ -155,11 +237,6 @@
     $('.btn-btn3').click(()=> {
       $('.page2').hide()
       $('.page5').show()
-    })
-
-    /** 点击兑换按钮 */
-    $('.btn-exchange').click(()=> {
-      $('.pos-change').show()
     })
 
     /** 点击规则页面关闭按钮 */
@@ -192,6 +269,8 @@
 
     /** 点击获奖页面查看我的奖品 */
     $('.btn-award-my').click(()=> {
+      /** 请求我的奖品 */
+      prizeList()
       $('.mask-award').hide()
       $('.page2').hide()
       $('.page4').show()
