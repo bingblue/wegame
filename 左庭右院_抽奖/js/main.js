@@ -8,6 +8,7 @@ let config = {
   source: baseUrl + "/publicApi/member/integralAvailable",  // 查询可用积分额
   lottery: baseUrl + "/publicApi/lottery",                  // 抽奖
   change: baseUrl + "/publicApi/member/addQuantity",        // 积分兑换
+  member: baseUrl + "/publicApi/member",                    // 获取登录用户信息
   
   wxConfig:{}
 }
@@ -57,7 +58,7 @@ function myPrizeList() {
   muGet(config.myPrizeList, res => {
     $('.my-prize').empty()
     res.forEach(item => {
-      $(`<li><a href="${item.url}">${item.prizeName}</a></li>`).appendTo('.my-prize')
+      $(`<li><a href="${item.prizeUrl}">${item.prizeName}</a></li>`).appendTo('.my-prize')
     })
   })
 }

@@ -352,20 +352,26 @@ body {
   height: 63%;
   top: 25%;
   left: 21%;
+  overflow: auto;
 }
 .my-prize li{
   background: url(../img/price.png) no-repeat;
   height: 14%;
   background-size: 100% 100%;
+  margin-bottom: 7px;
 }
 .my-prize a{
   color: #fff;
   display: block;
-  width: 100%;
+  width: 76%;
   height: 100%;
   font-size: 16px;
   line-height: 65px;
   text-indent: 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-all;
 }
 .mask-award-prize {
   width: 58%;
