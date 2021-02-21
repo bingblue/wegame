@@ -28,7 +28,9 @@
     <div class="main page1">
       <img src="img/bg.jpg" />
       <div class="pos jq-start">
-        <img src="img/bg_guo.png" class="pos" />
+        <img src="img/bg_guo.png" class="pos ani ani-guo" />
+        <img src="img/red1.png" class="pos ani ani-red" />
+        <img src="img/red2.png" class="pos ani ani-red" />
         <a href="javascript:;" class="pos btn-start"></a>
       </div>
     </div>
@@ -142,7 +144,10 @@
       }
       $('.mask-award').show()
       muGet(config.lottery, res => {
-        if(res) {
+        if(res.name != '谢谢惠顾') {
+          $('.mask-award-prize').empty()
+          $(`<img src="img/part/${res.image}">`).appendTo('.mask-award-prize')
+          $('.mask-award-txt').text(res.name)
           $('.mask-award').show()
         }else {
           $('.mask-fail').show()
@@ -193,16 +198,16 @@
 
     /** 点击提交手机号按钮 */
     $('.btn-submit').click(()=> {
-      // let phone = $('#phone').val()
-      // const reg = /^(?:(?:\+|00)86)?1[3-9]\d{9}$/g
-      // if (!reg.test(phone)) {
-      //   alert('手机号格式不正确')
-      //   return false
-      // }
-      // /** 更新手机号 */
-      // muGet(config.updateMobile, res => {
+      let phone = $('#phone').val()
+      const reg = /^(?:(?:\+|00)86)?1[3-9]\d{9}$/g
+      if (!reg.test(phone)) {
+        alert('手机号格式不正确')
+        return false
+      }
+      /** 更新手机号 */
+      muGet(config.updateMobile, res => {
         $('.mask-phone').hide()
-      // })
+      })
     })
 
     /** 点击规则按钮 */
