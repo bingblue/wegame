@@ -3,12 +3,22 @@ let baseUrl = "http://yx.zuotingyouyuan.com"
 let config = {
   updateMobile: baseUrl + "/publicApi/updateMobile",        // 更新登录会员手机号
   prizeList: baseUrl + "/publicApi/prize/list",             // 奖品列表
+  myPrizeList: baseUrl + "/publicApi/prizeBill/list",       // 我的奖品列表
   quantity: baseUrl + "/publicApi/member/quantity",         // 获取抽奖次数
   source: baseUrl + "/publicApi/member/integralAvailable",  // 查询可用积分额
   lottery: baseUrl + "/publicApi/lottery",                  // 抽奖
   change: baseUrl + "/publicApi/member/addQuantity",        // 积分兑换
   
   wxConfig:{}
+}
+let prizeImgList = {
+  '牛年金片10g': 'prize_4.png',
+  '冰箱贴1套': 'prize_5.png',
+  '38元代金券': 'prize_2.png',
+  '糖水（任选一款）': 'prize_7.png',
+  '特色牛肉串2串': 'prize_3.png',
+  '如皋萝卜片': 'prize_6.png',
+  '牛食府38元券': 'prize_1.png'
 }
 /**
  * 获取抽奖次数，积分等信息
@@ -21,14 +31,33 @@ function getInfo() {
     // 不用显示积分
   })
 }
+
 /**
  * 奖品列表
  */
 function prizeList() {
-  muGet(config.prizeList, res => {
+  let res = [
+    {name: '牛年金片10g'},
+    {name: '冰箱贴1套'},
+    {name: '38元代金券'},
+    {name: '糖水（任选一款）'},
+    {name: '特色牛肉串2串'},
+    {name: '如皋萝卜片'}]
+  // muGet(config.prizeList, res => {
+    $('.games-2').empty()
+    res.forEach(item => {
+      $(`<img src="img/part/${prizeImgList[item.name]}">`).appendTo('.games-2')
+    })
+  // })
+}
+/**
+ * 我的奖品列表
+ */
+function myPrizeList() {
+  muGet(config.myPrizeList, res => {
     $('.my-prize').empty()
     res.forEach(item => {
-      $(`<li><a href="${item.url}">${item.name}</a></li>`).appenTo('.my-prize')
+      $(`<li><a href="${item.url}">${item.prizeName}</a></li>`).appendTo('.my-prize')
     })
   })
 }

@@ -40,13 +40,15 @@
       <div class="pos jq-game">
         <a href="javascript:;" class="pos btn-btn1"></a>
         <a href="javascript:;" class="pos btn-btn2"></a>
-        <div class="pos games">
-          <img data-order="1" src="img/game/game_1.jpg">
-          <img data-order="2" src="img/game/game_2.jpg">
-          <img data-order="3" src="img/game/game_3.jpg">
-          <img data-order="4" src="img/game/game_4.jpg">
-          <img data-order="5" src="img/game/game_5.jpg">
-          <img data-order="6" src="img/game/game_6.jpg">
+        <div class="pos games games-1">
+          <img src="img/game/game_1.jpg">
+          <img src="img/game/game_2.jpg">
+          <img src="img/game/game_3.jpg">
+          <img src="img/game/game_4.jpg">
+          <img src="img/game/game_5.jpg">
+          <img src="img/game/game_6.jpg">
+        </div>
+        <div class="pos games games-2">
         </div>
         <a href="javascript:;" class="pos btn-game"></a>
         <a href="javascript:;" class="pos btn-source">你有<span>1</span>次抽奖机会</a>
@@ -128,6 +130,12 @@
       <img src="img/part/prize_5.png">
       <img src="img/part/prize_6.png">
       <img src="img/part/prize_7.png">
+      <img src="img/game/game_1.jpg">
+      <img src="img/game/game_2.jpg">
+      <img src="img/game/game_3.jpg">
+      <img src="img/game/game_4.jpg">
+      <img src="img/game/game_5.jpg">
+      <img src="img/game/game_6.jpg">
     </div>
   </div>
 </body>
@@ -146,7 +154,7 @@
       muGet(config.lottery, res => {
         if(res.name != '谢谢惠顾') {
           $('.mask-award-prize').empty()
-          $(`<img src="img/part/${res.image}">`).appendTo('.mask-award-prize')
+          $(`<img src="img/part/${prizeImgList[res.name]}">`).appendTo('.mask-award-prize')
           $('.mask-award-txt').text(res.name)
           $('.mask-award').show()
         }else {
@@ -186,9 +194,74 @@
 
     /** 点击游戏页开始抽奖按钮 */
     $('.btn-game').click(()=> {
+      if(gameStar) return
       let times = $('.btn-source span').text() * 1
       if(times > 0) {
         gameStar = true
+        prizeList()
+        $('.games-1').hide(0, ()=> {
+          $('.games-1 img').css({
+            top: '22%',
+            left: '32%'
+          })
+        })
+        $('.games-2').show(0, ()=> {
+          setTimeout(()=> {
+            $('.games-2 img').animate({
+              top: '22%',
+              left: '32%'
+            }, 200, ()=> {
+              $('.games-2').hide()
+              $('.games-1').show(0, ()=> {
+                $('.games-1 img').each((index, item)=> {
+                  let css = {}
+                  switch (index) {
+                    case 0:
+                      css = {
+                        top: '0%',
+                        left: '0%',
+                      }
+                      break;
+                    case 1:
+                      css = {
+                        top: '0%',
+                        left: '31%',
+                      }
+                      break;
+                    case 2:
+                      css = {
+                        top: '0%',
+                        left: '62%',
+                      }
+                      break;
+                    case 3:
+                      css = {
+                        top: '50%',
+                        left: '0%',
+                      }
+                      break;
+                    case 4:
+                      css = {
+                        top: '50%',
+                        left: '31%',
+                      }
+                      break;
+                    case 5:
+                      css = {
+                        top: '50%',
+                        left: '62%',
+                      }
+                      break;
+                    default:
+                      break;
+                  }
+                  $(item).animate(css, 200)
+                })
+              })
+            })
+          }, 500)
+        })
+        
         /** 抽奖次数减1 */
         $('.btn-source span').text(times - 1)
       }else {
@@ -219,7 +292,7 @@
     /** 点击规则页面的我的奖品按钮 */
     $('.btn-rule-my').click(()=> {
       /** 请求我的奖品 */
-      prizeList()
+      myPrizeList()
       $('.page3').hide()
       $('.page4').show()
     })
@@ -233,7 +306,7 @@
     /** 点击我的奖品按钮 */
     $('.btn-btn4').click(()=> {
       /** 请求我的奖品 */
-      prizeList()
+      myPrizeList()
       $('.page2').hide()
       $('.page4').show()
     })
@@ -275,7 +348,7 @@
     /** 点击获奖页面查看我的奖品 */
     $('.btn-award-my').click(()=> {
       /** 请求我的奖品 */
-      prizeList()
+      myPrizeList()
       $('.mask-award').hide()
       $('.page2').hide()
       $('.page4').show()

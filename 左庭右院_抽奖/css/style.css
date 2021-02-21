@@ -224,8 +224,34 @@ body {
   overflow: hidden;
 }
 .games img {
+  height: 44%;
   width: 28%;
   margin: 10px 4px;
+  position: absolute;
+  top: 0;
+}
+.games img:nth-child(2n) {
+  top: 0%;
+  left: 31%;
+}
+.games img:nth-child(3n) {
+  top: 0%;
+  left: 62%;
+}
+.games img:nth-child(4n) {
+  top: 50%;
+  left: 0%;
+}
+.games img:nth-child(5n) {
+  top: 50%;
+  left: 31%;
+}
+.games img:nth-child(6n) {
+  top: 50%;
+  left: 62%;
+}
+.games-2 img {
+  margin: 10px 5px;
 }
 .btn-game {
   top: 75%;
@@ -317,6 +343,9 @@ body {
   position: relative;
   width: 100%;
   height: auto;
+}
+.games-2 {
+  display: none;
 }
 .my-prize {
   width: 58%;
