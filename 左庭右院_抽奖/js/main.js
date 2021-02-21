@@ -76,7 +76,10 @@ function muGet(url, cb) {
       let dataStr = JSON.stringify(data)
       if (data.code == 200) {
         cb(data.data)
-      } else {
+      } else if (data.code == 500 && data.message == '未登录') {
+        alert(data.message)
+        window.location.href = baseUrl
+      }else {
         alert(data.message)
       }
     },
