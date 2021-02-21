@@ -14,11 +14,11 @@ let config = {
 let prizeImgList = {
   '牛年金片10g': 'prize_4.png',
   '冰箱贴1套': 'prize_5.png',
-  '38元代金券': 'prize_2.png',
+  '38元代金券': 'prize_1.png',
   '糖水（任选一款）': 'prize_7.png',
   '特色牛肉串2串': 'prize_3.png',
   '如皋萝卜片': 'prize_6.png',
-  '牛食府38元券': 'prize_1.png'
+  '牛食府38元券': 'prize_2.png'
 }
 /**
  * 获取抽奖次数，积分等信息
