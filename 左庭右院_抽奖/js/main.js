@@ -58,7 +58,7 @@ function myPrizeList() {
   muGet(config.myPrizeList, res => {
     $('.my-prize').empty()
     res.forEach(item => {
-      $(`<li><a href="${item.prizeUrl}">${item.prizeName}</a></li>`).appendTo('.my-prize')
+      $(`<li><a href="${item.prizeUrl}"><span>${item.prizeName}</span></a></li>`).appendTo('.my-prize')
     })
   })
 }
