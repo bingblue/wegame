@@ -278,7 +278,7 @@
         return false
       }
       /** 更新手机号 */
-      muGet(config.updateMobile, res => {
+      muGet(`${config.updateMobile}?mobile=${phone}`, res => {
         $('.mask-phone').hide()
       })
     })
