@@ -29,7 +29,7 @@ function getInfo() {
     $('.btn-source span').text(res)
   })
   muGet(config.source, res => {
-    // 不用显示积分
+    $('.txt-source span').text(res)
   })
 }
 
