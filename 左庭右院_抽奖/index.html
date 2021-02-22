@@ -206,14 +206,14 @@
     /** 点击首页开始抽奖按钮 */
     $('.btn-start').click(()=> {
       $('.page1').hide()
-      $('.page2').show()
-      // muGet(config.member, res => {
-      //   if(res.linkMobile) {
-      //     $('.page2').show()
-      //   }else {
-      //     $('.page2, .mask-phone').show()
-      //   }
-      // })
+      // $('.page2').show()
+      muGet(config.member, res => {
+        if(res.linkMobile) {
+          $('.page2').show()
+        }else {
+          $('.page2, .mask-phone').show()
+        }
+      })
     })
 
     /** 点击游戏页开始抽奖按钮 */

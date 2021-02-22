@@ -1,5 +1,5 @@
 ﻿//let baseUrl = "http://sayming.iok.la:29850"
-let baseUrl = "http://yx.zuotingyouyuan.com"
+let baseUrl = "http://139.224.135.21:44528"
 let config = {
   updateMobile: baseUrl + "/publicApi/updateMobile",        // 更新登录会员手机号
   prizeList: baseUrl + "/publicApi/prize/list",             // 奖品列表

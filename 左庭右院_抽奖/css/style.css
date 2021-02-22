@@ -666,13 +666,13 @@ body {
 .ani-cai1 {
   -webkit-animation-name: "ani-cai";
   -webkit-animation-duration: 0.3s;
-  -webkit-animation-delay: 2.3s;
+  -webkit-animation-delay: 1.8s;
   -webkit-animation-iteration-count: 1;
 }
 .ani-cai2 {
   -webkit-animation-name: "ani-cai";
   -webkit-animation-duration: 0.3s;
-  -webkit-animation-delay: 2.6s;
+  -webkit-animation-delay: 2s;
   -webkit-animation-iteration-count: 1;
 }
 .ani-hf {
