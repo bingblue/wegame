@@ -86,8 +86,7 @@ function muGet(url, cb) {
     },
     error: function (err) {
       let dataStr = JSON.stringify(err)
-      console.log("🚀 ~ file: main.js ~ line 89 ~ muGet ~ dataStr", dataStr)
-      alert(err.body.message)
+      alert(err.responseJSON.message)
       setTimeout(function () {
         // window.location.reload(true)
       }, 1000)
