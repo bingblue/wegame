@@ -86,6 +86,7 @@ function muGet(url, cb) {
     },
     error: function (err) {
       let dataStr = JSON.stringify(err)
+      alert(err.message)
       setTimeout(function () {
         // window.location.reload(true)
       }, 1000)
