@@ -157,12 +157,12 @@
     /** 点击抽奖牌 */
     $('.games img').click(function() {
       let that = this
-      // if(!gameStar) {
-      //   alert('请先点击开始抽奖按钮')
-      //   return false
-      // }
-      // muGet(config.lottery, res => {
-        res = {name: '牛年金片10g'}
+      if(!gameStar) {
+        alert('请先点击开始抽奖按钮')
+        return false
+      }
+      muGet(config.lottery, res => {
+        // res = {name: '牛年金片10g'}
         $(that).addClass('fazhuan')
         setTimeout(()=> {
           if(res.name != '谢谢惠顾') {
@@ -176,7 +176,7 @@
           $(that).removeClass('fazhuan')
         }, 300)
         gameStar = false
-      // })
+      })
     })
 
     /** 点击抽奖券兑换增加按钮 */
