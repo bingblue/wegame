@@ -28,6 +28,7 @@
     <div class="main page1">
       <img src="img/bg.jpg" />
       <div class="pos jq-start">
+        <img src="img/home_niu.png" class="pos ani ani-niu" />
         <img src="img/home_hf.png" class="pos ani ani-hf" />
         <img src="img/home_dl2.png" class="pos ani ani-dl" />
         <img src="img/home_dl1.png" class="pos ani ani-dl" />
@@ -222,72 +223,73 @@
       let times = $('.btn-source span').text() * 1
       if(times > 0) {
         gameStar = true
-        prizeList()
-        $('.games-1').hide(0, ()=> {
-          $('.games-1 img').css({
-            top: '22%',
-            left: '32%'
-          })
-        })
-        $('.games-2').show(0, ()=> {
-          setTimeout(()=> {
-            $('.games-2 img').animate({
+        prizeList(()=>{
+          $('.games-1').hide(0, ()=> {
+            $('.games-1 img').css({
               top: '22%',
               left: '32%'
-            }, 200, ()=> {
-              $('.games-2').hide()
-              $('.games-1').show(0, ()=> {
-                $('.games-1 img').each((index, item)=> {
-                  let css = {}
-                  switch (index) {
-                    case 0:
-                      css = {
-                        top: '0%',
-                        left: '0%',
-                      }
-                      break;
-                    case 1:
-                      css = {
-                        top: '0%',
-                        left: '31%',
-                      }
-                      break;
-                    case 2:
-                      css = {
-                        top: '0%',
-                        left: '62%',
-                      }
-                      break;
-                    case 3:
-                      css = {
-                        top: '50%',
-                        left: '0%',
-                      }
-                      break;
-                    case 4:
-                      css = {
-                        top: '50%',
-                        left: '31%',
-                      }
-                      break;
-                    case 5:
-                      css = {
-                        top: '50%',
-                        left: '62%',
-                      }
-                      break;
-                    default:
-                      break;
-                  }
-                  $(item).animate(css, 200)
+            })
+          })
+          $('.games-2').show(0, ()=> {
+            setTimeout(()=> {
+              $('.games-2 img').animate({
+                top: '22%',
+                left: '32%'
+              }, 200, ()=> {
+                $('.games-2').hide()
+                $('.games-1').show(0, ()=> {
+                  $('.games-1 img').each((index, item)=> {
+                    let css = {}
+                    switch (index) {
+                      case 0:
+                        css = {
+                          top: '0%',
+                          left: '0%',
+                        }
+                        break;
+                      case 1:
+                        css = {
+                          top: '0%',
+                          left: '31%',
+                        }
+                        break;
+                      case 2:
+                        css = {
+                          top: '0%',
+                          left: '62%',
+                        }
+                        break;
+                      case 3:
+                        css = {
+                          top: '50%',
+                          left: '0%',
+                        }
+                        break;
+                      case 4:
+                        css = {
+                          top: '50%',
+                          left: '31%',
+                        }
+                        break;
+                      case 5:
+                        css = {
+                          top: '50%',
+                          left: '62%',
+                        }
+                        break;
+                      default:
+                        break;
+                    }
+                    $(item).animate(css, 200)
+                  })
                 })
               })
-            })
-          }, 500)
+            }, 700)
+          })
+          
+          /** 抽奖次数减1 */
+          $('.btn-source span').text(times - 1)
         })
-        
-        /** 抽奖次数减1 */
-        $('.btn-source span').text(times - 1)
       }else {
         alert('抽奖次数已用完')
       }

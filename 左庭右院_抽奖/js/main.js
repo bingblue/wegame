@@ -36,20 +36,21 @@ function getInfo() {
 /**
  * 奖品列表
  */
-function prizeList() {
-  let res = [
-    {name: '牛年金片10g'},
-    {name: '冰箱贴1套'},
-    {name: '38元代金券'},
-    {name: '糖水（任选一款）'},
-    {name: '特色牛肉串2串'},
-    {name: '如皋萝卜片'}]
-  // muGet(config.prizeList, res => {
+function prizeList(cb) {
+  // let res = [
+  //   {name: '牛年金片10g'},
+  //   {name: '冰箱贴1套'},
+  //   {name: '38元代金券'},
+  //   {name: '糖水（任选一款）'},
+  //   {name: '特色牛肉串2串'},
+  //   {name: '如皋萝卜片'}]
+  muGet(config.prizeList, res => {
     $('.games-2').empty()
     res.forEach(item => {
       $(`<img src="img/part/${prizeImgList[item.name]}">`).appendTo('.games-2')
     })
-  // })
+    if(typeof cb == 'function') cb()
+  })
 }
 /**
  * 我的奖品列表
