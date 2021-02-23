@@ -151,11 +151,17 @@
       <img src="img/game/game_5.jpg">
       <img src="img/game/game_6.jpg">
     </div>
+    <audio src="img/sound.mp3" loop="loop" autoplay="autoplay" id="media1"></audio>
   </div>
 </body>
 <script>
   $(function () {
     // $('.page2').show()
+    /** 播放声音 */
+    $('.btn-btn1').on('touchstart', function() {
+      let media1 = $("#media1").get(0)
+      media1.paused ? media1.play(): media1.pause()
+    })
     getInfo()
     let gameStar = false
     let changeNum = 0
@@ -226,14 +232,14 @@
     /** 点击首页开始抽奖按钮 */
     $('.btn-start').click(()=> {
       $('.page1').hide()
-      // $('.page2').show()
-      muGet(config.member, res => {
-        if(res.linkMobile) {
-          $('.page2').show()
-        }else {
-          $('.page2, .mask-phone').show()
-        }
-      })
+      $('.page2').show()
+      // muGet(config.member, res => {
+      //   if(res.linkMobile) {
+      //     $('.page2').show()
+      //   }else {
+      //     $('.page2, .mask-phone').show()
+      //   }
+      // })
     })
 
     /** 点击游戏页开始抽奖按钮 */
