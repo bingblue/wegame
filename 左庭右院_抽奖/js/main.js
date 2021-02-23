@@ -19,7 +19,8 @@ let prizeImgList = {
   '糖水（任选一款）': 'prize_7.png',
   '特色牛肉串2串': 'prize_3.png',
   '如皋萝卜片': 'prize_6.png',
-  '牛食府38元券': 'prize_2.png'
+  '牛食府38元券': 'prize_2.png',
+  '谢谢惠顾': 'prize_8.png'
 }
 /**
  * 获取抽奖次数，积分等信息
