@@ -336,6 +336,9 @@ body {
   width: 100%;
   /* background: rgba(0, 0, 0, 0.8) */
 }
+.happy {
+  display: none;
+}
 .mask-bg {
   background: rgba(0, 0, 0, 0.8);
 }
@@ -689,9 +692,39 @@ body {
 
 .ani-niu {
   -webkit-animation-name: "ani-niu";
-  -webkit-animation-duration: 1.6s;
+  -webkit-animation-duration: 0.8s;
   -webkit-animation-delay: 1.6s;
   -webkit-animation-iteration-count: 1;
+}
+.ani-niu2 {
+  -webkit-animation-name: "ani-niu2";
+  -webkit-animation-duration: 0.8s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.happy-1 {
+  -webkit-animation-name: "ani-happy-1";
+  -webkit-animation-duration: .3s;
+  -webkit-animation-delay: 0s;
+  -webkit-animation-fill-mode: backwards;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.happy-2 {
+  -webkit-animation-name: "ani-happy-2";
+  -webkit-animation-duration: .6s;
+  -webkit-animation-delay: 0.1s;
+  -webkit-animation-fill-mode: backwards;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.happy-3 {
+  -webkit-animation-name: "ani-happy-3";
+  -webkit-animation-duration: .9s;
+  -webkit-animation-delay: 0.2s;
+  -webkit-animation-fill-mode: backwards;
+  -webkit-animation-iteration-count: infinite;
 }
 
 .fazhuan {
@@ -701,6 +734,42 @@ body {
   transition: 0.8s;
 }
 
+@keyframes ani-happy-1 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes ani-happy-2 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes ani-happy-3 {
+  0% {
+    opacity: 0;
+  }
+  33% {
+    opacity: 0;
+  }
+  67% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes ani-red {
   0% {
     top: 0;
@@ -719,7 +788,7 @@ body {
   }
 }
 
-@keyframes ani-niu {
+/* @keyframes ani-niu {
   0% {
     transform: scale(1);
   }
@@ -734,6 +803,28 @@ body {
   }
   100% {
     transform: rotate(0deg);
+  }
+} */
+@keyframes ani-niu {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes ani-niu2 {
+  0% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(15deg);
   }
 }
 

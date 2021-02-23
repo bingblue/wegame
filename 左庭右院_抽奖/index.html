@@ -35,8 +35,8 @@
         <img src="img/home_cai2.png" class="pos ani ani-cai2" />
         <img src="img/home_cai1.png" class="pos ani ani-cai1" />
         <img src="img/home_guo.png" class="pos" />
-        <img src="img/red1.png" class="pos ani ani-red" />
-        <img src="img/red2.png" class="pos ani ani-red" />
+        <!-- <img src="img/red1.png" class="pos ani ani-red" />
+        <img src="img/red2.png" class="pos ani ani-red" /> -->
         <a href="javascript:;" class="pos btn-start"></a>
       </div>
     </div>
@@ -108,6 +108,9 @@
         <!-- <img src="img/part/prize_1.png"> -->
       </div>
       <span class="pos mask-award-txt"></span>
+      <img src="img/happy_1.png" class="pos happy jq-happy-1">
+      <img src="img/happy_2.png" class="pos happy jq-happy-2">
+      <img src="img/happy_3.png" class="pos happy jq-happy-3">
       <a href="javascript:;" class="pos btn-award-close"></a>
       <a href="javascript:;" class="pos btn-award-my"></a>
     </div>
@@ -152,9 +155,25 @@
 </body>
 <script>
   $(function () {
+    // $('.page2').show()
     getInfo()
     let gameStar = false
     let changeNum = 0
+    let num = 1
+    /** 烟花效果 */
+    setInterval(()=> {
+      num++
+      if(num == 4) {
+        num = 0
+        return
+      }
+      $('.happy').hide()
+      $('.jq-happy-' + num).show()
+    }, 200)
+
+    setTimeout(() => {
+      $('.ani-niu').removeClass('ani-niu').addClass('ani-niu2')
+    }, 2400);
     /** 点击抽奖牌 */
     $('.games img').click(function() {
       let that = this
@@ -224,68 +243,120 @@
       if(times > 0) {
         gameStar = true
         prizeList(()=>{
-          $('.games-1').hide(0, ()=> {
-            $('.games-1 img').css({
+          // $('.games-1').hide(0, ()=> {
+          //   $('.games-1 img').css({
+          //     top: '22%',
+          //     left: '32%'
+          //   })
+          // })
+          // $('.games-2').show(0, ()=> {
+          //   setTimeout(()=> {
+          //     $('.games-2 img').animate({
+          //       top: '22%',
+          //       left: '32%'
+          //     }, 200, ()=> {
+          //       $('.games-2').hide()
+          //       $('.games-1').show(0, ()=> {
+          //         $('.games-1 img').each((index, item)=> {
+          //           let css = {}
+          //           switch (index) {
+          //             case 0:
+          //               css = {
+          //                 top: '0%',
+          //                 left: '0%',
+          //               }
+          //               break;
+          //             case 1:
+          //               css = {
+          //                 top: '0%',
+          //                 left: '31%',
+          //               }
+          //               break;
+          //             case 2:
+          //               css = {
+          //                 top: '0%',
+          //                 left: '62%',
+          //               }
+          //               break;
+          //             case 3:
+          //               css = {
+          //                 top: '50%',
+          //                 left: '0%',
+          //               }
+          //               break;
+          //             case 4:
+          //               css = {
+          //                 top: '50%',
+          //                 left: '31%',
+          //               }
+          //               break;
+          //             case 5:
+          //               css = {
+          //                 top: '50%',
+          //                 left: '62%',
+          //               }
+          //               break;
+          //             default:
+          //               break;
+          //           }
+          //           $(item).animate(css, 200)
+          //         })
+          //       })
+          //     })
+          //   }, 700)
+          // })
+
+          setTimeout(()=> {
+            $('.games-1 img').animate({
               top: '22%',
               left: '32%'
-            })
-          })
-          $('.games-2').show(0, ()=> {
-            setTimeout(()=> {
-              $('.games-2 img').animate({
-                top: '22%',
-                left: '32%'
-              }, 200, ()=> {
-                $('.games-2').hide()
-                $('.games-1').show(0, ()=> {
-                  $('.games-1 img').each((index, item)=> {
-                    let css = {}
-                    switch (index) {
-                      case 0:
-                        css = {
-                          top: '0%',
-                          left: '0%',
-                        }
-                        break;
-                      case 1:
-                        css = {
-                          top: '0%',
-                          left: '31%',
-                        }
-                        break;
-                      case 2:
-                        css = {
-                          top: '0%',
-                          left: '62%',
-                        }
-                        break;
-                      case 3:
-                        css = {
-                          top: '50%',
-                          left: '0%',
-                        }
-                        break;
-                      case 4:
-                        css = {
-                          top: '50%',
-                          left: '31%',
-                        }
-                        break;
-                      case 5:
-                        css = {
-                          top: '50%',
-                          left: '62%',
-                        }
-                        break;
-                      default:
-                        break;
+            }, 500, ()=> {
+              $('.games-1 img').each((index, item)=> {
+                let css = {}
+                switch (index) {
+                  case 0:
+                    css = {
+                      top: '0%',
+                      left: '0%',
                     }
-                    $(item).animate(css, 200)
-                  })
-                })
+                    break;
+                  case 1:
+                    css = {
+                      top: '0%',
+                      left: '31%',
+                    }
+                    break;
+                  case 2:
+                    css = {
+                      top: '0%',
+                      left: '62%',
+                    }
+                    break;
+                  case 3:
+                    css = {
+                      top: '50%',
+                      left: '0%',
+                    }
+                    break;
+                  case 4:
+                    css = {
+                      top: '50%',
+                      left: '31%',
+                    }
+                    break;
+                  case 5:
+                    css = {
+                      top: '50%',
+                      left: '62%',
+                    }
+                    break;
+                  default:
+                    break;
+                }
+                $(item).animate(css, 300)
               })
-            }, 700)
-          })
+            })
+          }, 700)
           
           /** 抽奖次数减1 */
           $('.btn-source span').text(times - 1)
