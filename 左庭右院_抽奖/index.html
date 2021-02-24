@@ -151,30 +151,31 @@
       <img src="img/game/game_5.jpg">
       <img src="img/game/game_6.jpg">
     </div>
-    <!-- <audio src="img/sound.mp3" loop="loop" autoplay="autoplay" id="media1"></audio> -->
+    <audio src="img/sound.mp3" loop="loop" autoplay="autoplay" id="media1"></audio>
   </div>
 </body>
 <script>
   $(function () {
     // $('.page2').show()
     /** 播放声音 */
-    // setTimeout(() => {
-    //   let media1 = $("#media1").get(0)
-    //   media1.play()
-    // }, 500)
+    setTimeout(() => {
+      let media1 = $("#media1").get(0)
+      media1.play()
+    }, 500)
     function initMusic() {
       //动态创建一个audio节点
-      var audio = document.createElement('audio');
-      audio.setAttribute('id', 'media1');
-      audio.setAttribute('autoplay', 'autoplay');
-      audio.setAttribute('loop', 'loop');
-      audio.innerHTML = '<source src="img/sound.mp3" type="audio/mpeg">';
+      // var audio = document.createElement('audio');
+      // audio.setAttribute('id', 'media1');
+      // audio.setAttribute('autoplay', 'autoplay');
+      // audio.setAttribute('loop', 'loop');
+      // audio.innerHTML = '<source src="img/sound.mp3" type="audio/mpeg">';
       
-      //将audio节点追加到dom
-      document.body.appendChild(audio);
-      audio.load();
+      // //将audio节点追加到dom
+      // document.body.appendChild(audio);
+      // audio.load();
       
-     //iOS Safari可能是出于防止骚扰用户的考虑，首次非用户触发的play不会生效
+      //iOS Safari可能是出于防止骚扰用户的考虑，首次非用户触发的play不会生效
+      let audio = $("#media1").get(0)
       audio.play();
       audio.pause();
       
