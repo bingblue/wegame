@@ -176,8 +176,9 @@
       
       //iOS Safari可能是出于防止骚扰用户的考虑，首次非用户触发的play不会生效
       let audio = $("#media1").get(0)
-      audio.play();
-      audio.pause();
+      audio.play()
+      audio.pause()
+      audio.play()
       
       document.addEventListener("WeixinJSBridgeReady", function () {
         //微信H5环境，监听WeixinJSBridgeReady事件，再次进行play
@@ -188,7 +189,7 @@
 
     window.onload = function() {
       //初始化一段音乐，并直接进行播放
-        initMusic();
+        initMusic()
     }
     $('.btn-btn1').on('touchstart', function() {
       let media1 = $("#media1").get(0)
