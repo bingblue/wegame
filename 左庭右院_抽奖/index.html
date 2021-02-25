@@ -162,10 +162,12 @@
     //   let media1 = $("#media1").get(0)
     //   media1.play()
     // }, 500)
-    $('<img src="img/part/prize_7.png">').appendTo('body').load(()=>{
+    let img = new Image()
+    img.src = 'img/part/prize_8.png'
+    img.onload = ()=> {
       let media1 = $("#media1").get(0)
       media1.play()
-    })
+    }
     // var audio = document.createElement('audio');
     // audio.setAttribute('id', 'media1');
     // audio.setAttribute('autoplay', 'autoplay');
