@@ -11,6 +11,8 @@
   <meta content="no-cache,must-revalidate" http-equiv="Cache-Control" />
   <meta content="no-cache" http-equiv="pragma" />
   <meta content="0" http-equiv="expires" />
+  <meta http-equiv="content-type" content="no-cache, must-revalidate" />
+  <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT"/>
   <meta content="telephone=no, address=no" name="format-detection" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -162,12 +164,12 @@
     //   let media1 = $("#media1").get(0)
     //   media1.play()
     // }, 500)
-    let img = new Image()
-    img.src = 'img/part/prize_8.png'
-    img.onload = ()=> {
-      let media1 = $("#media1").get(0)
-      media1.play()
-    }
+    // let img = new Image()
+    // img.src = 'img/part/prize_8.png'
+    // img.onload = ()=> {
+    //   let media1 = $("#media1").get(0)
+    //   media1.play()
+    // }
     // var audio = document.createElement('audio');
     // audio.setAttribute('id', 'media1');
     // audio.setAttribute('autoplay', 'autoplay');
@@ -186,16 +188,16 @@
     //   // audio.load();
       
     //   //iOS Safari可能是出于防止骚扰用户的考虑，首次非用户触发的play不会生效
-    //   let audio = $("#media1").get(0)
-    //   audio.play()
-    //   audio.pause()
-    //   audio.play()
+      let audio = $("#media1").get(0)
+      audio.play()
+      audio.pause()
+      audio.play()
       
-    //   document.addEventListener("WeixinJSBridgeReady", function () {
-    //     //微信H5环境，监听WeixinJSBridgeReady事件，再次进行play
-    //     //亲测iOS 微信H5页面能够自动播放
-    //     document.getElementById('media1').play();
-    //   }, false);
+      document.addEventListener("WeixinJSBridgeReady", function () {
+        //微信H5环境，监听WeixinJSBridgeReady事件，再次进行play
+        //亲测iOS 微信H5页面能够自动播放
+        document.getElementById('media1').play()
+      }, false)
     // }
 
     // window.onload = function() {
@@ -276,6 +278,8 @@
     /** 点击首页开始抽奖按钮 */
     $('.btn-start').click(()=> {
       $('.page1').hide()
+      let media1 = $("#media1").get(0)
+      media1.play()
       // $('.page2').show()
       muGet(config.member, res => {
         if(res.linkMobile) {
