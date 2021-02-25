@@ -471,6 +471,9 @@ audio {
   top: 3%;
   left: 72%;
 }
+.mute {
+  background: url('../img/icon_mute.png') center no-repeat;
+}
 .btn-btn2 {
   width: 11%;
   height: 5%;

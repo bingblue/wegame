@@ -210,7 +210,13 @@
     // }
     $('.btn-btn1').on('touchstart', function() {
       let media1 = $("#media1").get(0)
-      media1.paused ? media1.play(): media1.pause()
+      if(media1.paused) {
+        media1.play()
+        $('.mute').removeClass('mute')
+      }else {
+        media1.pause()
+        $('.btn-btn1').addClass('mute')
+      }
     })
     getInfo()
     let gameStar = false
