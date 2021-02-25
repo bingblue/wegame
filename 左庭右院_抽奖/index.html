@@ -158,9 +158,9 @@
 </body>
 <script>
   $(function () {
-    let s = setTimeout(() => {
-      window.location.reload(true)
-    }, 500);
+    // let s = setTimeout(() => {
+    //   window.location.reload(true)
+    // }, 500);
     // $('.page2').show()
     /** 播放声音 */
     // setTimeout(() => {
@@ -200,7 +200,7 @@
         //微信H5环境，监听WeixinJSBridgeReady事件，再次进行play
         //亲测iOS 微信H5页面能够自动播放
         document.getElementById('media1').play()
-        clearTimeout(s)
+        // clearTimeout(s)
       }, false)
     // }
 
