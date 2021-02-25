@@ -158,39 +158,48 @@
   $(function () {
     // $('.page2').show()
     /** 播放声音 */
-    setTimeout(() => {
+    // setTimeout(() => {
+    //   let media1 = $("#media1").get(0)
+    //   media1.play()
+    // }, 500)
+    $('<img src="img/part/prize_7.png">').appendTo('body').load(()=>{
       let media1 = $("#media1").get(0)
       media1.play()
-    }, 500)
-    function initMusic() {
-      //动态创建一个audio节点
-      // var audio = document.createElement('audio');
-      // audio.setAttribute('id', 'media1');
-      // audio.setAttribute('autoplay', 'autoplay');
-      // audio.setAttribute('loop', 'loop');
-      // audio.innerHTML = '<source src="img/sound.mp3" type="audio/mpeg">';
+    })
+    // var audio = document.createElement('audio');
+    // audio.setAttribute('id', 'media1');
+    // audio.setAttribute('autoplay', 'autoplay');
+    // audio.setAttribute('loop', 'loop');
+    // audio.innerHTML = '<source src="img/sound.mp3" type="audio/mpeg">';
+    // function initMusic() {
+    //   //动态创建一个audio节点
+    //   // var audio = document.createElement('audio');
+    //   // audio.setAttribute('id', 'media1');
+    //   // audio.setAttribute('autoplay', 'autoplay');
+    //   // audio.setAttribute('loop', 'loop');
+    //   // audio.innerHTML = '<source src="img/sound.mp3" type="audio/mpeg">';
       
-      // //将audio节点追加到dom
-      // document.body.appendChild(audio);
-      // audio.load();
+    //   // //将audio节点追加到dom
+    //   // document.body.appendChild(audio);
+    //   // audio.load();
       
-      //iOS Safari可能是出于防止骚扰用户的考虑，首次非用户触发的play不会生效
-      let audio = $("#media1").get(0)
-      audio.play()
-      audio.pause()
-      audio.play()
+    //   //iOS Safari可能是出于防止骚扰用户的考虑，首次非用户触发的play不会生效
+    //   let audio = $("#media1").get(0)
+    //   audio.play()
+    //   audio.pause()
+    //   audio.play()
       
-      document.addEventListener("WeixinJSBridgeReady", function () {
-        //微信H5环境，监听WeixinJSBridgeReady事件，再次进行play
-        //亲测iOS 微信H5页面能够自动播放
-        document.getElementById('media1').play();
-      }, false);
-    }
+    //   document.addEventListener("WeixinJSBridgeReady", function () {
+    //     //微信H5环境，监听WeixinJSBridgeReady事件，再次进行play
+    //     //亲测iOS 微信H5页面能够自动播放
+    //     document.getElementById('media1').play();
+    //   }, false);
+    // }
 
-    window.onload = function() {
-      //初始化一段音乐，并直接进行播放
-        initMusic()
-    }
+    // window.onload = function() {
+    //   //初始化一段音乐，并直接进行播放
+    //     initMusic()
+    // }
     $('.btn-btn1').on('touchstart', function() {
       let media1 = $("#media1").get(0)
       media1.paused ? media1.play(): media1.pause()
